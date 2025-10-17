@@ -1,5 +1,5 @@
 ---
-title: "A Cross-National Comparison Case Study on the Basic Skills Academic Offering"
+title: "Basic Skills in Higher Education: A Cross-National Comparison Case Study"
 format: html
 keywords: 
   - Basic Skills
@@ -7,7 +7,7 @@ keywords:
   - Latin American
   - Bipartite Network Modeling
 abstract: |
-  This supplementary material aims to expand the data and methodological documentation of the work: "*A Cross-National Comparison Case Study on the Basic Skills Academic Offering.*" Emphasis is placed on how to use the associated [GitHub repository](https://github.com/jcorrean/SoftSkillsLatam) for R users with expertise in network data science.
+  This supplementary material aims to expand the data and methodological documentation of the work: "*Basic Skills in Higher Education: A Cross-National Comparison Case Study.*" Emphasis is placed on how to use the associated [GitHub repository](https://github.com/jcorrean/SoftSkillsLatam) for R users with expertise in network data science.
 ---
 
 ```{r, echo = FALSE, warning = FALSE}
@@ -28,6 +28,9 @@ suppressPackageStartupMessages(library(purrr)) # for mapping functions and vecto
 suppressPackageStartupMessages(library(tibble)) # for tibbles
 suppressPackageStartupMessages(library(psych)) # for multivariate analysis
 ```
+# Motivation
+
+Empirical research in higher education seldom adheres to FAIR principles and open science standards. The absence of these principles (i.e., Findable, Accessible, Interoperable, and Reusable) represents a significant barrier that prevents researchers from making meaningful contributions. Given the massive adoption of the so-called Large Language Models such as ChatGPT or Microsoft Copilo by university students and professors, it is timely to revisit teaching and learning practices, and understand the importance of basic skills such as reading comprehension, writing, or critical thinking. Here, we provide a supplementary material that follows the FAIR principles to promote open science standards among educational researchers.
 
 # The Data
 

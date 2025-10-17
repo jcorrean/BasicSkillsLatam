@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Juan C. Correa">
-<meta name="dcterms.date" content="2025-03-03">
+<meta name="dcterms.date" content="2025-10-16">
 <meta name="keywords" content="Basic Skills, Academic Offering, Latin American, Bipartite Network Modeling">
 
-<title>A Cross-National Comparison Case Study on the Basic Skills Academic Offering</title>
+<title>Basic Skills in Higher Education: A Cross-National Comparison Case Study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -86,19 +86,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-data" id="toc-the-data" class="nav-link active" data-scroll-target="#the-data"><span class="header-section-number">1</span> The Data</a>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">1</span> Motivation</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data"><span class="header-section-number">2</span> The Data</a>
   <ul class="collapse">
-  <li><a href="#raw-data-and-pre-processing" id="toc-raw-data-and-pre-processing" class="nav-link" data-scroll-target="#raw-data-and-pre-processing"><span class="header-section-number">1.1</span> Raw data and pre-processing</a></li>
-  <li><a href="#curated-data" id="toc-curated-data" class="nav-link" data-scroll-target="#curated-data"><span class="header-section-number">1.2</span> Curated Data</a></li>
+  <li><a href="#raw-data-and-pre-processing" id="toc-raw-data-and-pre-processing" class="nav-link" data-scroll-target="#raw-data-and-pre-processing"><span class="header-section-number">2.1</span> Raw data and pre-processing</a></li>
+  <li><a href="#curated-data" id="toc-curated-data" class="nav-link" data-scroll-target="#curated-data"><span class="header-section-number">2.2</span> Curated Data</a></li>
   </ul></li>
-  <li><a href="#network-analyses" id="toc-network-analyses" class="nav-link" data-scroll-target="#network-analyses"><span class="header-section-number">2</span> Network analyses</a>
+  <li><a href="#network-analyses" id="toc-network-analyses" class="nav-link" data-scroll-target="#network-analyses"><span class="header-section-number">3</span> Network analyses</a>
   <ul class="collapse">
-  <li><a href="#network-properties-set-up" id="toc-network-properties-set-up" class="nav-link" data-scroll-target="#network-properties-set-up"><span class="header-section-number">2.1</span> Network properties set up</a></li>
+  <li><a href="#network-properties-set-up" id="toc-network-properties-set-up" class="nav-link" data-scroll-target="#network-properties-set-up"><span class="header-section-number">3.1</span> Network properties set up</a></li>
   </ul></li>
-  <li><a href="#regional-network-analysis" id="toc-regional-network-analysis" class="nav-link" data-scroll-target="#regional-network-analysis"><span class="header-section-number">3</span> Regional Network Analysis</a></li>
-  <li><a href="#inferential-network-analysis" id="toc-inferential-network-analysis" class="nav-link" data-scroll-target="#inferential-network-analysis"><span class="header-section-number">4</span> Inferential Network Analysis</a>
+  <li><a href="#regional-network-analysis" id="toc-regional-network-analysis" class="nav-link" data-scroll-target="#regional-network-analysis"><span class="header-section-number">4</span> Regional Network Analysis</a></li>
+  <li><a href="#inferential-network-analysis" id="toc-inferential-network-analysis" class="nav-link" data-scroll-target="#inferential-network-analysis"><span class="header-section-number">5</span> Inferential Network Analysis</a>
   <ul class="collapse">
-  <li><a href="#hypothesis-and-model-specifications" id="toc-hypothesis-and-model-specifications" class="nav-link" data-scroll-target="#hypothesis-and-model-specifications"><span class="header-section-number">4.1</span> Hypothesis and Model Specifications</a></li>
+  <li><a href="#hypothesis-and-model-specifications" id="toc-hypothesis-and-model-specifications" class="nav-link" data-scroll-target="#hypothesis-and-model-specifications"><span class="header-section-number">5.1</span> Hypothesis and Model Specifications</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -108,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">A Cross-National Comparison Case Study on the Basic Skills Academic Offering</h1>
+<h1 class="title">Basic Skills in Higher Education: A Cross-National Comparison Case Study</h1>
 <p class="subtitle lead"><strong><em>Supplementary Material</em></strong></p>
 </div>
 
@@ -133,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 3, 2025</p>
+      <p class="date">October 16, 2025</p>
     </div>
   </div>
   
@@ -143,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
 <div>
   <div class="abstract">
     <div class="block-title">Abstract</div>
-    <p>This supplementary material aims to expand the data and methodological documentation of the work: “<em>A Cross-National Comparison Case Study on the Basic Skills Academic Offering.</em>” Emphasis is placed on how to use the associated <a href="https://github.com/jcorrean/SoftSkillsLatam">GitHub repository</a> for R users with expertise in network data science.</p>
+    <p>This supplementary material aims to expand the data and methodological documentation of the work: “<em>Basic Skills in Higher Education: A Cross-National Comparison Case Study.</em>” Emphasis is placed on how to use the associated <a href="https://github.com/jcorrean/SoftSkillsLatam">GitHub repository</a> for R users with expertise in network data science.</p>
   </div>
 </div>
 
@@ -157,29 +158,33 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="the-data" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> The Data</h1>
+<section id="motivation" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Motivation</h1>
+<p>Empirical research in higher education seldom adheres to FAIR principles and open science standards. The absence of these principles (i.e., Findable, Accessible, Interoperable, and Reusable) represents a significant barrier that prevents researchers from making meaningful contributions. Given the massive adoption of the so-called Large Language Models such as ChatGPT or Microsoft Copilo by university students and professors, it is timely to revisit teaching and learning practices, and understand the importance of basic skills such as reading comprehension, writing, or critical thinking. Here, we provide a supplementary material that follows the FAIR principles to promote open science standards among educational researchers.</p>
+</section>
+<section id="the-data" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> The Data</h1>
 <p>The codes developed to preprocess the raw data are available in the following <a href="https://github.com/jcorrean/BasicSkillsLatam">GitHub repository</a>. Researchers interested in replicate or reproduce our analysis can find the RProject file <code>BasicSkillsLatam.RProj.</code></p>
 <p>The supplementary material is documented as a Quarto document with the name <code>SupplementaryMaterial.qmd</code> and can be rendered in RStudio.</p>
-<section id="raw-data-and-pre-processing" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="raw-data-and-pre-processing"><span class="header-section-number">1.1</span> Raw data and pre-processing</h2>
+<section id="raw-data-and-pre-processing" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="raw-data-and-pre-processing"><span class="header-section-number">2.1</span> Raw data and pre-processing</h2>
 <p>Raw data are available as texts (PDF or docx files) in the folder of the corresponding sampled country. For example, sampled documents from Argentina are available in the folder “Argentina,” documents from Brazil are available in the folder “Brazil,” and so on. Texts pre-processing were handled with <code>readtext</code> and <code>quanteda</code> in a series of R scripts. These scripts are available in the folder “Pre-processing.”</p>
 </section>
-<section id="curated-data" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="curated-data"><span class="header-section-number">1.2</span> Curated Data</h2>
+<section id="curated-data" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="curated-data"><span class="header-section-number">2.2</span> Curated Data</h2>
 <p>As a convenient step in our analyses, we created the folder “Curated_Data” which provides curated data for each country. This curated data provides the estimated centrality for each basic skill in each country. Apart from these data, we also provide the NetworkData folder. This second folder contains the academic offering of each nation as a network data serialized in RDS format.</p>
 </section>
 </section>
-<section id="network-analyses" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Network analyses</h1>
+<section id="network-analyses" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Network analyses</h1>
 <p>Pre-processing texts result in a series of features-document matrices which are available in the folder “Matrices.” We used these matrices as raw input for modeling the academic offering as a series of non-directed bipartite networks with the help of the <code>igraph</code> package.</p>
-<section id="network-properties-set-up" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="network-properties-set-up"><span class="header-section-number">2.1</span> Network properties set up</h2>
+<section id="network-properties-set-up" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="network-properties-set-up"><span class="header-section-number">3.1</span> Network properties set up</h2>
 <p>The network properties of each nation’s academic offering was done with the <code>network</code> package. The following network attributes are present for each academic offering: country of origin, membership to the Organization for Economic Development (OECD), network size, network density, network clustering (estimated by the <code>reinforcement_tm</code> algortihm available in the <code>tnet</code> package). Vertex attributes include the country of origin (for both node partitions), the length of the brochure (for nodes in the first partition), the degree centrality (for both node partitions), the eigenvector centrality (for both node partitions), the program level (for the first node partition), and the name of each skills (for nodes in the second partition). These vertex attributes enable us to exert statistical control when estimating the network effects in our series of exponential random graph models.</p>
 </section>
 </section>
-<section id="regional-network-analysis" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Regional Network Analysis</h1>
+<section id="regional-network-analysis" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Regional Network Analysis</h1>
 <p>The following table summarizes the network statistics of the academic offering of graduate programs in Latin American sampled countries. In general terms, the academic offering is weakly connected to basic skills (network density ranges from 0.005 in Brazil and Ecuador to 0.061 in Costa Rica). The weak connectivity between programs and basic skills reveals that the academic offering from sampled universities in Latin America highlights other contents that have nothing to do with basic skills as developed capacities that facilitate learning and a faster acquisition of knowledge.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -294,11 +299,11 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="inferential-network-analysis" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Inferential Network Analysis</h1>
+<section id="inferential-network-analysis" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Inferential Network Analysis</h1>
 <p>To estimate the importance of these basic skills for the academic offering of graduate programs in Latin America, we now switch the attention to a series of exponential random graph models.</p>
-<section id="hypothesis-and-model-specifications" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="hypothesis-and-model-specifications"><span class="header-section-number">4.1</span> Hypothesis and Model Specifications</h2>
+<section id="hypothesis-and-model-specifications" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="hypothesis-and-model-specifications"><span class="header-section-number">5.1</span> Hypothesis and Model Specifications</h2>
 <p><strong>Model 1</strong>: The fundamental hypothesis associated to this model posits that our top five basic skills suffice to account for the connectivity observed above. When each of these skills are modeled as statistical terms, their estimates will be positive, greater than zero, and statistically significant.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
