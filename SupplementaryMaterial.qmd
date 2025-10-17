@@ -33,6 +33,9 @@ suppressPackageStartupMessages(library(psych)) # for multivariate analysis
 Empirical research in higher education seldom adheres to FAIR principles and open science standards. The absence of these principles (i.e., Findable, Accessible, Interoperable, and Reusable) represents a significant barrier that prevents researchers from making meaningful contributions. Given the massive adoption of the so-called Large Language Models such as ChatGPT or Microsoft Copilo by university students and professors, it is timely to revisit teaching and learning practices, and understand the importance of basic skills such as reading comprehension, writing, or critical thinking. Here, we provide a supplementary material that follows the FAIR principles to promote open science standards among educational researchers.
 
 # The Data
+Our work presents a cross-national case study that estimates the importance of basic skills across 3,155 graduate programs offered by 481 universities at three educational levels or for three target audiences—specialization, master's, and doctoral programs—in nine Latin American countries.
+
+
 
 The codes developed to preprocess the raw data are available in the following [GitHub repository](https://github.com/jcorrean/BasicSkillsLatam). Researchers interested in replicate or reproduce our analysis can find the RProject file `BasicSkillsLatam.RProj.`
 
