@@ -6,6 +6,7 @@ library(coda)
 SampledNetworks <- Networks(RegionalNetworks)
 
 set.seed(2758)
+model0 <- ergm(SampledNetworks ~ edges + )
 model1 <- ergm(SampledNetworks ~ edges + b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)), 
                                                   control = control.ergm(MCMC.samplesize = 100000, 
                                                                          MCMC.burnin = 10000, 
