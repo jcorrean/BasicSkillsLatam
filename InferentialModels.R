@@ -4,7 +4,7 @@ library(ergm)
 library(ergm.multi)
 library(coda)
 SampledNetworks <- Networks(RegionalNetworks)
-
+SampledNetworks
 set.seed(2758)
 model0 <- ergm(SampledNetworks ~ edges + b1factor('Program', levels = c("Doctorado", "Maestría")))
 summary(model0)
