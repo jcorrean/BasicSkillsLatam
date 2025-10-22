@@ -93,6 +93,8 @@ set.network.attribute(Venezuela, "Country", "Venezuela")
 set.network.attribute(Venezuela, "Level", "All")
 set.network.attribute(Venezuela, "OECD", FALSE)
 Venezuela
+network::set.vertex.attribute(Venezuela, "OECD", c(rep(FALSE, 210), rep(NA, 10)))
+network::get.vertex.attribute(Venezuela, "OECD")
 
 library(igraph)
 bnVEN <- graph_from_biadjacency_matrix(t(Matriz), directed = FALSE)
@@ -305,5 +307,5 @@ MatrizVEMS <- as.matrix(t(VEN_MS))
 MatrizVEPHD <- as.matrix(t(VEN_PhD))
 
 
-save.image("~/Documents/GitHub/SoftSkillsLatam/Results/Venezuela.RData")
+save.image("Results/Venezuela.RData")
 
