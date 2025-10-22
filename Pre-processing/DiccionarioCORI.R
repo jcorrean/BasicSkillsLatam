@@ -92,6 +92,8 @@ set.network.attribute(CostaRica, "Country", "Costa Rica")
 set.network.attribute(CostaRica, "Level", "All")
 set.network.attribute(CostaRica, "OECD", TRUE)
 CostaRica
+network::set.vertex.attribute(CostaRica, "OECD", c(rep(TRUE, 120), rep(NA, 10)))
+network::get.vertex.attribute(CostaRica, "OECD")
 
 library(igraph)
 bnCORI <- graph_from_biadjacency_matrix(Matriz, directed = FALSE)
@@ -297,5 +299,5 @@ MatrizCORISPEC <- as.matrix(t(CORI_Spec))
 MatrizCORIMS <- as.matrix(t(CORI_MS))
 MatrizCORIPHD <- as.matrix(t(CORI_PhD))
 
-save.image("~/Documents/GitHub/SoftSkillsLatam/Results/CostaRica.RData")
+save.image("Results/CostaRica.RData")
 
