@@ -91,6 +91,8 @@ set.network.attribute(Mexico, "Country", "Mexico")
 set.network.attribute(Mexico, "Level", "All")
 set.network.attribute(Mexico, "OECD", TRUE)
 Mexico
+network::set.vertex.attribute(Mexico, "OECD", c(rep(TRUE, 552), rep(NA, 10)))
+network::get.vertex.attribute(Mexico, "OECD")
 
 library(igraph)
 bnMEX <- graph_from_biadjacency_matrix(Matriz, directed = FALSE)
@@ -294,4 +296,4 @@ MatrizMEXSPEC <- as.matrix(t(MEX_Spec))
 MatrizMEXMS <- as.matrix(t(MEX_MS))
 MatrizMEXPHD <- as.matrix(t(MEX_PhD))
 
-save.image("~/Documents/GitHub/SoftSkillsLatam/Results/Mexico.RData")
+save.image("Results/Mexico.RData")
