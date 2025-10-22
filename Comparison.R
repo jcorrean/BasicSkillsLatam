@@ -79,7 +79,7 @@ library(dplyr)
 library(tidyr)
 library(tibble)
 library(ggplot2)
-load("~/Documents/GitHub/SoftSkillsLatam/Curated_Data/AllProgramsSkills.RData")
+load("Curated_Data/AllProgramsSkills.RData")
 Skills <- AllPrograms %>% filter(., Partition == "Skill")
 Skills$Node <- gsub("^(ARG|BRA|CHL|COL|CR|ECU|MEX|URU|VEN)_", "", Skills$Node)
 
@@ -92,16 +92,17 @@ ggplot(Skills, aes(x=reorder(Node, -Eigenvector), y=Eigenvector, fill = Level))+
   facet_wrap(. ~ Country) +
   theme_linedraw() +
   coord_flip()+
-  theme(axis.text.x = element_text(angle=0, hjust=1, size = 30),
-        axis.text.y = element_text(size = 30),
+  theme(axis.text.x = element_text(angle=0, hjust=1, size =40),
+        axis.text.y = element_text(size = 40),
         axis.title.x = element_text(size = 30, colour = "black"),
         axis.title.y = element_text(size = 50, colour = "black"),
         legend.text = element_text(size = 30),  
         legend.title = element_text(size = 20), 
+        legend.position = c(0.93, 0.93),
         strip.text = element_text(face="bold", size=rel(3.5), colour = "black"),
         strip.background = element_rect(fill="grey", colour="grey",
-                                        size=30))+
-  xlab("") + ylab("Eigenvector centrality of basic skills") +
+                                        size=30,))+
+  xlab("") + ylab("Normalized centrality degree of basic skills") +
   labs(fill="")
 dev.off()
 
