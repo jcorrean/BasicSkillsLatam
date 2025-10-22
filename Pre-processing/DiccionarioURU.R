@@ -91,6 +91,8 @@ set.network.attribute(Uruguay, "Country", "Uruguay")
 set.network.attribute(Uruguay, "Level", "All")
 set.network.attribute(Uruguay, "OECD", FALSE)
 Uruguay
+network::set.vertex.attribute(Uruguay, "OECD", c(rep(FALSE, 147), rep(NA, 10)))
+network::get.vertex.attribute(Uruguay, "OECD")
 library(igraph)
 bnURU <- graph_from_biadjacency_matrix(Matriz, directed = FALSE)
 edges_uy <- data.frame()
@@ -292,5 +294,5 @@ set.network.attribute(Uruguay3, "Country", "Uruguay")
 set.network.attribute(Uruguay3, "Level", "PhD")
 Uruguay3
 
-save.image("~/Documents/GitHub/SoftSkillsLatam/Results/Uruguay.RData")
+save.image("Results/Uruguay.RData")
 
