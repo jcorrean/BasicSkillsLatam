@@ -51,7 +51,7 @@ Sampled.Universities
 
 268/Sampled.Universities
 
-RegionNetwork <- do.call(rbind, list(edges_args, 
+RegionNetwork <- do.call(rbind, list(edges_arg, 
                                      edges_br, 
                                      edges_chl, 
                                      edges_col, 
