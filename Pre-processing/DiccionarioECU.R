@@ -91,6 +91,9 @@ set.network.attribute(Ecuador, "Clustering", ClusteringECU)
 set.network.attribute(Ecuador, "Country", "Ecuador")
 set.network.attribute(Ecuador, "Level", "All")
 set.network.attribute(Ecuador, "OECD", FALSE)
+network::set.vertex.attribute(Ecuador, "OECD", c(rep(FALSE, 731), rep(NA, 10)))
+network::get.vertex.attribute(Ecuador, "OECD")
+Ecuador
 library(igraph)
 bnECU <- graph_from_biadjacency_matrix(Matriz, directed = FALSE)
 edges_ecu <- data.frame()
@@ -290,5 +293,5 @@ MatrizECUSPEC <- as.matrix(t(ECU_Spec))
 MatrizECUMS <- as.matrix(t(ECU_MS))
 MatrizECUPHD <- as.matrix(t(ECU_PhD))
 
-save.image("~/Documents/GitHub/SoftSkillsLatam/Results/Ecuador.RData")
+save.image("Results/Ecuador.RData")
 
