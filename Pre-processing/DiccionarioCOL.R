@@ -91,6 +91,9 @@ set.network.attribute(Colombia, "Country", "Colombia")
 set.network.attribute(Colombia, "Level", "All")
 set.network.attribute(Colombia, "OECD", TRUE)
 Colombia
+network::set.vertex.attribute(Colombia, "OECD", c(rep(TRUE, 230), rep(NA, 10)))
+network::get.vertex.attribute(Colombia, "OECD")
+Colombia
 library(igraph)
 bnCOL <- graph_from_biadjacency_matrix(t(Matriz), directed = FALSE)
 edges_col <- data.frame()
@@ -301,4 +304,4 @@ MatrizCOSPEC <- as.matrix(t(COL_Spec))
 MatrizCOMS <- as.matrix(t(COL_MS))
 MatrizCOPHD <- as.matrix(t(COL_PhD))
 
-save.image("~/Documents/GitHub/SoftSkillsLatam/Results/Colombia.RData")
+save.image("Results/Colombia.RData")
