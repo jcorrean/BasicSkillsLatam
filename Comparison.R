@@ -85,19 +85,23 @@ Skills$Node <- gsub("^(ARG|BRA|CHL|COL|CR|ECU|MEX|URU|VEN)_", "", Skills$Node)
 
 
 png(filename = "FS.png", width = 40, height = 18, units = "in", res = 300)
-ggplot(Skills, aes(x=reorder(Node, -Eigenvector), y=Eigenvector, fill = Level))+
+ggplot(Skills, aes(x=reorder(Node, -Eigenvector), y=Eigenvector, fill = Level)) +
   geom_bar(position = "stack", stat = "identity") +
-  scale_fill_manual("", values = c("Specialization" = "royalblue4", "Master" = "lightsteelblue3", "PhD" = "lightskyblue2")) +
-#  scale_fill_manual(values = c("steelblue1", "slateblue1", "slateblue4")) +
+  scale_fill_manual(
+    "",
+    values = c("Specialization" = "royalblue4", "Master" = "lightsteelblue3", "PhD" = "lightskyblue2"),
+    breaks = c("Specialization", "Master", "PhD") # <--- Add the breaks argument here
+  ) +
+  #  scale_fill_manual(values = c("steelblue1", "slateblue1", "slateblue4")) +
   facet_wrap(. ~ Country) +
   theme_linedraw() +
-  coord_flip()+
+  coord_flip() +
   theme(axis.text.x = element_text(angle=0, hjust=1, size =40),
         axis.text.y = element_text(size = 40),
         axis.title.x = element_text(size = 30, colour = "black"),
         axis.title.y = element_text(size = 50, colour = "black"),
-        legend.text = element_text(size = 30),  
-        legend.title = element_text(size = 20), 
+        legend.text = element_text(size = 30),
+        legend.title = element_text(size = 20),
         legend.position = c(0.93, 0.93),
         strip.text = element_text(face="bold", size=rel(3.5), colour = "black"),
         strip.background = element_rect(fill="grey", colour="grey",

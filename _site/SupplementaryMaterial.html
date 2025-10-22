@@ -99,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#regional-network-analysis" id="toc-regional-network-analysis" class="nav-link" data-scroll-target="#regional-network-analysis"><span class="header-section-number">4</span> Regional Network Analysis</a></li>
   <li><a href="#inferential-network-analysis" id="toc-inferential-network-analysis" class="nav-link" data-scroll-target="#inferential-network-analysis"><span class="header-section-number">5</span> Inferential Network Analysis</a>
   <ul class="collapse">
-  <li><a href="#hypothesis-and-model-specifications" id="toc-hypothesis-and-model-specifications" class="nav-link" data-scroll-target="#hypothesis-and-model-specifications"><span class="header-section-number">5.1</span> Hypothesis and Model Specifications</a></li>
+  <li><a href="#hypotheses-and-model-specifications" id="toc-hypotheses-and-model-specifications" class="nav-link" data-scroll-target="#hypotheses-and-model-specifications"><span class="header-section-number">5.1</span> Hypotheses and Model Specifications</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -303,9 +303,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="inferential-network-analysis" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Inferential Network Analysis</h1>
 <p>To estimate the importance of these basic skills for the academic offering of graduate programs in Latin America, we now switch the attention to a series of exponential random graph models.</p>
-<section id="hypothesis-and-model-specifications" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="hypothesis-and-model-specifications"><span class="header-section-number">5.1</span> Hypothesis and Model Specifications</h2>
-<p><strong>Model 1</strong>: The fundamental hypothesis associated to this model posits that our top five basic skills suffice to account for the connectivity observed above. When each of these skills are modeled as statistical terms, their estimates will be positive, greater than zero, and statistically significant.</p>
+<section id="hypotheses-and-model-specifications" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="hypotheses-and-model-specifications"><span class="header-section-number">5.1</span> Hypotheses and Model Specifications</h2>
+<p><strong>Model 1</strong>: In this first model we posit that the top five most central basic skills suffices to account for the connectivity observed for our bipartite network in the region. When each of these skills are modeled as statistical terms, their estimates will be positive, greater than zero, and statistically significant.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Call:
@@ -335,8 +335,44 @@ b2factor.vertex.names.active_learning          1
 AIC: 12  BIC: 63  (Smaller is better. MC Std. Err. = 0)</code></pre>
 </div>
 </div>
-<p>The results of our first models confirms our expectations regarding the significance of these basic skills for accounting for the network connectivity between programs and basic skills in the Latin American academic offering.</p>
-<p><strong>Model 2</strong>: This model is an extension of the previous one and compares the robustness of our top five basic skills against the length of the brochure that is used to promote the programs where these skills are explicitly mentioned. The length of the brochure is a covariate that can hide confounding factors associated to the skills targeted by the programs (e.g., the brochure describes other benefits for prospective students interesting in getting a double degree or a professional certification). To prevent biased estimates of our five basic skills, we need to clarify if this covariate alters the estimates reported in model 1. We expect that the statistical estimates for our five basic skills will remain positive, greater than zero, and statistically significant, while the statistical estimate for the brochure length will remain non-significant and close to zero.</p>
+<p>The results of our first model confirms our expectations regarding the significance of these basic skills for accounting for the network connectivity between programs and basic skills in the Latin American academic offering. In order to test the robustness of these basic skills, we introduce other factors in subsequent models.</p>
+<p><strong>Model 2</strong>: In this second model, we also include the effects for doctoral and master’s programs. Given the weak connectivity reported in the descriptive findings, we expect that the effects of graduate programs should be negative and statistically significant.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+ergm(formula = SampledNetworks ~ edges + b2factor("vertex.names", 
+    levels = c(8, 9, 2, 4, 1)) + b1factor("Program", levels = c("Doctorado", 
+    "Maestría")))
+
+Maximum Likelihood Results:
+
+                                          Estimate Std. Error MCMC % z value
+edges                                   -3.313e+01  7.829e+05      0       0
+b2factor.vertex.names.science            1.609e+00  1.219e+06      0       0
+b2factor.vertex.names.speaking           1.609e+00  1.219e+06      0       0
+b2factor.vertex.names.active_listening   1.609e+00  1.219e+06      0       0
+b2factor.vertex.names.learning_strategy  1.609e+00  1.219e+06      0       0
+b2factor.vertex.names.active_learning    1.609e+00  1.219e+06      0       0
+b1factor.Program.Doctorado              -1.376e-01  9.566e+05      0       0
+b1factor.Program.Maestría               -5.862e-01  8.723e+05      0       0
+                                        Pr(&gt;|z|)
+edges                                          1
+b2factor.vertex.names.science                  1
+b2factor.vertex.names.speaking                 1
+b2factor.vertex.names.active_listening         1
+b2factor.vertex.names.learning_strategy        1
+b2factor.vertex.names.active_learning          1
+b1factor.Program.Doctorado                     1
+b1factor.Program.Maestría                      1
+
+     Null Deviance: 5.038e+04  on 36340  degrees of freedom
+ Residual Deviance: 1.614e-11  on 36332  degrees of freedom
+ 
+AIC: 16  BIC: 84.01  (Smaller is better. MC Std. Err. = 0)</code></pre>
+</div>
+</div>
+<p>The results from model 2 confirm our expectations, and most importantly, the ERGM estimates of basic skills remain intact</p>
+<p><strong>Model 3</strong>: This model is an extension of the previous one and compares the robustness of our top five basic skills against the length of the brochure that is used to promote the programs where these skills are explicitly mentioned. The length of the brochure is a covariate that can hide confounding factors associated to the skills targeted by the programs (e.g., the brochure describes other benefits for prospective students interesting in getting a double degree or a professional certification). To prevent biased estimates of our five basic skills, we need to clarify if this covariate alters the estimates reported in model 1. We expect that the statistical estimates for our five basic skills will remain positive, greater than zero, and statistically significant, while the statistical estimate for the brochure length will remain non-significant and close to zero.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Call:

@@ -167,23 +167,28 @@ Skills <- AllPrograms %>% filter(., Partition == "Skill")
 Skills$Node <- gsub("^(ARG|BRA|CHL|COL|CR|ECU|MEX|URU|VEN)_", "", Skills$Node)
 Skills$Level <- factor(Skills$Level, levels = c("Specialization", "Master", "PhD"))
 
-ggplot(Skills, aes(x=reorder(Node, -Eigenvector), y=Eigenvector, fill = Level))+
+ggplot(Skills, aes(x=reorder(Node, -Eigenvector), y=Eigenvector, fill = Level)) +
   geom_bar(position = "stack", stat = "identity") +
-  scale_fill_manual("", values = c("Specialization" = "lightskyblue2", "Master" = "lightsteelblue3", "PhD" = "royalblue4")) +
-#  scale_fill_manual(values = c("steelblue1", "slateblue1", "slateblue4")) +
+  scale_fill_manual(
+    "",
+    values = c("Specialization" = "royalblue4", "Master" = "lightsteelblue3", "PhD" = "lightskyblue2"),
+    breaks = c("Specialization", "Master", "PhD") # <--- Add the breaks argument here
+  ) +
+  #  scale_fill_manual(values = c("steelblue1", "slateblue1", "slateblue4")) +
   facet_wrap(. ~ Country) +
   theme_linedraw() +
-  coord_flip()+
-  theme(axis.text.x = element_text(angle=0, hjust=1, size = 30),
-        axis.text.y = element_text(size = 30),
+  coord_flip() +
+  theme(axis.text.x = element_text(angle=0, hjust=1, size =40),
+        axis.text.y = element_text(size = 40),
         axis.title.x = element_text(size = 30, colour = "black"),
         axis.title.y = element_text(size = 50, colour = "black"),
-        legend.text = element_text(size = 30),  
-        legend.title = element_text(size = 20), 
+        legend.text = element_text(size = 30),
+        legend.title = element_text(size = 20),
+        legend.position = c(0.93, 0.93),
         strip.text = element_text(face="bold", size=rel(3.5), colour = "black"),
         strip.background = element_rect(fill="grey", colour="grey",
-                                        size=30))+
-  xlab("") + ylab("Eigenvector centrality of basic skills") +
+                                        size=30,))+
+  xlab("") + ylab("Normalized centrality degree of basic skills") +
   labs(fill="")
 ```
 
@@ -191,9 +196,9 @@ ggplot(Skills, aes(x=reorder(Node, -Eigenvector), y=Eigenvector, fill = Level))+
 
 To estimate the importance of these basic skills for the academic offering of graduate programs in Latin America, we now switch the attention to a series of exponential random graph models.
 
-## Hypothesis and Model Specifications
+## Hypotheses and Model Specifications
 
-**Model 1**: The fundamental hypothesis associated to this model posits that our top five basic skills suffice to account for the connectivity observed above. When each of these skills are modeled as statistical terms, their estimates will be positive, greater than zero, and statistically significant.
+**Model 1**: In this first model we posit that the top five most central basic skills suffices to account for the connectivity observed for our bipartite network in the region. When each of these skills are modeled as statistical terms, their estimates will be positive, greater than zero, and statistically significant. 
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 RegionalNetworks <- readRDS("NetworkData/RegionalNetworks.RDS")
@@ -205,7 +210,9 @@ model1 <- ergm(SampledNetworks ~ edges +
 summary(model1)
 ```
 
-The results of our first models confirms our expectations regarding the significance of these basic skills for accounting for the network connectivity between programs and basic skills in the Latin American academic offering. The results of this model are contrasted with a second model that considers OECD membership as an exogenous covariable.
+The results of our first model confirms our expectations regarding the significance of these basic skills for accounting for the network connectivity between programs and basic skills in the Latin American academic offering. In order to test the robustness of these basic skills, we introduce other factors in subsequent models.
+
+**Model 2**: In this second model, we also include the effects for doctoral and master's programs.  Given the weak connectivity reported in the descriptive findings, we expect that the effects of graduate programs should be negative and statistically significant.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 model2 <- ergm(SampledNetworks ~ edges + 
@@ -214,14 +221,14 @@ model2 <- ergm(SampledNetworks ~ edges +
 summary(model2)
 ```
 
+The results from model 2 confirm our expectations, and most importantly, the ERGM estimates of basic skills remain intact
 
 **Model 3**: This model is an extension of the previous one and compares the robustness of our top five basic skills against the length of the brochure that is used to promote the programs where these skills are explicitly mentioned. The length of the brochure is a covariate that can hide confounding factors associated to the skills targeted by the programs (e.g., the brochure describes other benefits for prospective students interesting in getting a double degree or a professional certification). To prevent biased estimates of our five basic skills, we need to clarify if this covariate alters the estimates reported in model 1. We expect that the statistical estimates for our five basic skills will remain positive, greater than zero, and statistically significant, while the statistical estimate for the brochure length will remain non-significant and close to zero.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 model3 <- ergm(SampledNetworks ~ edges + 
                  b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) +
-                 b1cov("Brochure.Length")+
-                 )
+                 b1cov("Brochure.Length"))
 summary(model3) # AIC: 36919
 ```
 
