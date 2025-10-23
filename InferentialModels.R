@@ -8,9 +8,6 @@ RegionalNetworks
 SampledNetworks
 get.vertex.attribute(SampledNetworks, "Country")
 set.seed(2758)
-model0 <- ergm(SampledNetworks ~ edges + b1factor('Program', levels = c("Doctorado", "Maestría")))
-summary(model0)
-
 model1 <- ergm(SampledNetworks ~ edges + b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)), 
                                                   control = control.ergm(MCMC.samplesize = 100000, 
                                                                          MCMC.burnin = 10000, 
@@ -58,7 +55,9 @@ extract_coefs_simulations <- function(Simuladas1, model) {
 
 coef_df1 <- extract_coefs_simulations(Simuladas1, model1)
 
-model2 <- ergm(SampledNetworks ~ edges + b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) + b1cov("Brochure.Length"))
+model2 <- ergm(SampledNetworks ~ edges + b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) + 
+                 b1cov("Brochure.Length"))
 summary(model2) # AIC: 36919
+
 model3 <- ergm(SampledNetworks ~ edges + b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) + b1cov("Brochure.Length") + b1factor("Country", levels = NULL))
 summary(model3) # AIC: 36004

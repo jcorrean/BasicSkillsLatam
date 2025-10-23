@@ -154,7 +154,7 @@ ggplot(AllPrograms, aes(x=Level, y=Eigenvector, fill = Partition)) +
         strip.text = element_text(face="bold", size=rel(3.5), colour = "black"),
         strip.background = element_rect(fill="grey", colour="grey",
                                         size=30)) +
-  xlab("") + ylab("Estimated importance") +
+  xlab("") + ylab("Normalized centrality degree") +
   labs(fill="")+
   scale_fill_manual(values = c("Skill" = "#09419e", "Program" = "red2"))
 ```
@@ -198,7 +198,9 @@ To estimate the importance of these basic skills for the academic offering of gr
 
 ## Hypotheses and Model Specifications
 
-**Model 1**: In this first model we posit that the top five most central basic skills suffices to account for the connectivity observed for our bipartite network in the region. When each of these skills are modeled as statistical terms, their estimates will be positive, greater than zero, and statistically significant. 
+### **Model 1** 
+
+In this first model we posit that the top five most central basic skills suffices to account for the connectivity observed for our bipartite network in the region. When each of these skills are modeled as statistical terms, their estimates will be positive, greater than zero, and statistically significant. 
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 RegionalNetworks <- readRDS("NetworkData/RegionalNetworks.RDS")
@@ -212,7 +214,9 @@ summary(model1)
 
 The results of our first model confirms our expectations regarding the significance of these basic skills for accounting for the network connectivity between programs and basic skills in the Latin American academic offering. In order to test the robustness of these basic skills, we introduce other factors in subsequent models.
 
-**Model 2**: In this second model, we also include the effects for doctoral and master's programs.  Given the weak connectivity reported in the descriptive findings, we expect that the effects of graduate programs should be negative and statistically significant.
+### **Model 2** 
+
+In this second model, we also include the effects for doctoral and master's programs.  Given the weak connectivity reported in the descriptive findings, we expect that the effects of graduate programs should be negative and statistically significant.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 model2 <- ergm(SampledNetworks ~ edges + 
@@ -223,7 +227,9 @@ summary(model2)
 
 The results from model 2 confirm our expectations, and most importantly, the ERGM estimates of basic skills remain intact compared to the estimates of model 1, suggesting that basic skills are robust enough without losing statistical power. 
 
-**Model 3**: In this model, we want to test the effects of other confounding factors that might be hidden behind the length of the brochure that is used to promote the programs where these skills are explicitly mentioned. We claim that this covariable can hide confounding factors associated to the skills targeted by the programs because the information contained in them can describe other attributes of the program that have nothing to do with basic skills formation, like the possibility to getting a double degree or a professional certification. We expect that the statistical estimates for our five basic skills will remain positive, greater than zero, and statistically significant, while the statistical estimate for the brochure length will remain non-significant and close to zero.
+### **Model 3**: 
+
+In this model, we want to test the effects of other confounding factors that might be hidden behind the length of the brochure that is used to promote the programs where these skills are explicitly mentioned. We claim that this covariable can hide confounding factors associated to the skills targeted by the programs because the information contained in them can describe other attributes of the program that have nothing to do with basic skills formation, like the possibility to getting a double degree or a professional certification. We expect that the statistical estimates for our five basic skills will remain positive, greater than zero, and statistically significant, while the statistical estimate for the brochure length will remain non-significant and close to zero.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 model3 <- ergm(SampledNetworks ~ edges + 
@@ -234,4 +240,13 @@ summary(model3) # AIC: 36919
 
 The results from model 3 do not confirm our expectations. Brochure length proved to exert a positive
 
-**Model 4**: The f
+### **Model 4**: 
+
+Here we want to test wether the membershipt to OECD exert a significant effect on network ties. We expect that this factor is positive and statistically significant.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+model4 <- ergm(SampledNetworks ~ edges + 
+                 b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) +
+                 b1factor('OECD', levels = "TRUE"))
+summary(model4) # AIC: 36919
+```
