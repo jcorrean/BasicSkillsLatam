@@ -12,9 +12,22 @@ model1 <- ergm(SampledNetworks ~ edges + b2factor("vertex.names", levels = c(8, 
                                                   control = control.ergm(MCMC.samplesize = 100000, 
                                                                          MCMC.burnin = 10000, 
                                                                          MCMLE.maxit = 10))
-summary(model1) # AIC: 37397
+summary(model1) # AIC: 12 BIC: 63
 GOF <- gof(model1)
 plot(GOF)
+
+model2 <- ergm(SampledNetworks ~ edges + 
+                 b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) +
+                 b1factor('Program', levels = c("Doctorado", "Maestría")))
+summary(model2) # AIC: 16, BIC: 84.01
+
+model3 <- ergm(SampledNetworks ~ edges + 
+                 b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) + 
+                 b1factor('Program', levels = c("Doctorado", "Maestría")) +
+                 b1cov("Brochure.Length"))
+summary(model3) # AIC: 36004
+
+
 
 set.seed(2758)
 Simuladas1 <- simulate(model1, nsim = 1000, 
@@ -55,9 +68,4 @@ extract_coefs_simulations <- function(Simuladas1, model) {
 
 coef_df1 <- extract_coefs_simulations(Simuladas1, model1)
 
-model2 <- ergm(SampledNetworks ~ edges + b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) + 
-                 b1cov("Brochure.Length"))
-summary(model2) # AIC: 36919
 
-model3 <- ergm(SampledNetworks ~ edges + b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) + b1cov("Brochure.Length") + b1factor("Country", levels = NULL))
-summary(model3) # AIC: 36004
