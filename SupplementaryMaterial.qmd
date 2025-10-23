@@ -163,7 +163,7 @@ ggplot(AllPrograms, aes(x=Level, y=Eigenvector, fill = Partition)) +
 The next figure shows the normalized centrality for basic skills across programs (specialization, master, and PhD) and country. Scientific reasoning (science) emerged as the top basic skill with the highest centrality, regardless of the local academic offerings available in each country. Alongside scientific reasoning (science), the following basic skills complete the top five competencies: speaking, active listening, learning strategy, and active learning. We use this skill set as the basis for our network-based inferential analyses in the next section.
 
 
-```{r F2, fig.cap="Figure 2. Estimated importance of basic skills by country.", echo=FALSE, fig.width=40, fig.height=18, warning=FALSE}
+```{r F2, fig.cap="Figure 2. Normalized centrality for basic skills across programs and contries.", echo=FALSE, fig.width=40, fig.height=18, warning=FALSE}
 
 Skills <- AllPrograms %>% filter(., Partition == "Skill")
 Skills$Node <- gsub("^(ARG|BRA|CHL|COL|CR|ECU|MEX|URU|VEN)_", "", Skills$Node)

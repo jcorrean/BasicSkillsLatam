@@ -25,7 +25,14 @@ model3 <- ergm(SampledNetworks ~ edges +
                  b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) + 
                  b1factor('Program', levels = c("Doctorado", "Maestría")) +
                  b1cov("Brochure.Length"))
-summary(model3) # AIC: 36004
+summary(model3) # AIC: 18, BIC: 94.51
+
+model4 <- ergm(SampledNetworks ~ edges + 
+                 b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) + 
+                 b1factor('Program', levels = c("Doctorado", "Maestría")) +
+                 b1cov("Brochure.Length")+
+                 b1factor("OECD", levels = "TRUE"))
+summary(model4) # AIC: 20, BIC: 105
 
 
 
