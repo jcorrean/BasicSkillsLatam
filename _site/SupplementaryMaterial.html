@@ -371,8 +371,8 @@ b1factor.Program.Maestría                      1
 AIC: 16  BIC: 84.01  (Smaller is better. MC Std. Err. = 0)</code></pre>
 </div>
 </div>
-<p>The results from model 2 confirm our expectations, and most importantly, the ERGM estimates of basic skills remain intact</p>
-<p><strong>Model 3</strong>: This model is an extension of the previous one and compares the robustness of our top five basic skills against the length of the brochure that is used to promote the programs where these skills are explicitly mentioned. The length of the brochure is a covariate that can hide confounding factors associated to the skills targeted by the programs (e.g., the brochure describes other benefits for prospective students interesting in getting a double degree or a professional certification). To prevent biased estimates of our five basic skills, we need to clarify if this covariate alters the estimates reported in model 1. We expect that the statistical estimates for our five basic skills will remain positive, greater than zero, and statistically significant, while the statistical estimate for the brochure length will remain non-significant and close to zero.</p>
+<p>The results from model 2 confirm our expectations, and most importantly, the ERGM estimates of basic skills remain intact compared to the estimates of model 1, suggesting that basic skills are robust enough without losing statistical power.</p>
+<p><strong>Model 3</strong>: In this model, we want to test the effects of other confounding factors that might be hidden behind the length of the brochure that is used to promote the programs where these skills are explicitly mentioned. We claim that this covariable can hide confounding factors associated to the skills targeted by the programs because the information contained in them can describe other attributes of the program that have nothing to do with basic skills formation, like the possibility to getting a double degree or a professional certification. We expect that the statistical estimates for our five basic skills will remain positive, greater than zero, and statistically significant, while the statistical estimate for the brochure length will remain non-significant and close to zero.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Call:
@@ -404,8 +404,8 @@ b1cov.Brochure.Length                      1.000
 AIC: 14  BIC: 73.5  (Smaller is better. MC Std. Err. = 0)</code></pre>
 </div>
 </div>
-<p>The hypothesis proposed in model 2 is partially confirmed. The statistical estimates for our top five skills remained almost invariant, while the estimate for the length of the brochure is close to zero albeit statistically significant.</p>
-<p><strong>Model 3</strong>: The f</p>
+<p>The results from model 3 do not confirm our expectations. Brochure length proved to exert a positive</p>
+<p><strong>Model 4</strong>: The f</p>
 
 
 </section>
