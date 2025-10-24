@@ -8,10 +8,20 @@ RegionalNetworks
 SampledNetworks
 get.vertex.attribute(SampledNetworks, "Country")
 set.seed(2758)
-model1 <- ergm(SampledNetworks ~ edges + b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)), 
-                                                  control = control.ergm(MCMC.samplesize = 100000, 
-                                                                         MCMC.burnin = 10000, 
-                                                                         MCMLE.maxit = 10))
+
+
+model1 <- ergm(SampledNetworks ~ edges + b1cov("Brochure.Length"), 
+               control = control.ergm(MCMC.samplesize = 100000, 
+                                      MCMC.burnin = 10000, 
+                                      MCMLE.maxit = 10))
+summary(model1)
+
+model1 <- ergm(SampledNetworks ~ edges + 
+                 b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) +
+                 b1cov("Brochure.Length"), 
+               control = control.ergm(MCMC.samplesize = 100000,
+                                      MCMC.burnin = 10000, 
+                                      MCMLE.maxit = 10))
 summary(model1) # AIC: 12 BIC: 63
 GOF <- gof(model1)
 plot(GOF)
