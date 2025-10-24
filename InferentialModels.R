@@ -14,28 +14,30 @@ model1 <- ergm(SampledNetworks ~ edges + b1cov("Brochure.Length"),
                control = control.ergm(MCMC.samplesize = 100000, 
                                       MCMC.burnin = 10000, 
                                       MCMLE.maxit = 10))
-summary(model1) #AIC: 14 BIC: 73.5
+summary(model1) #AIC: 4 BIC: 21
 
-model1 <- ergm(SampledNetworks ~ edges + 
+model2 <- ergm(SampledNetworks ~ edges + 
                  b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) +
                  b1cov("Brochure.Length"), 
                control = control.ergm(MCMC.samplesize = 100000,
                                       MCMC.burnin = 10000, 
                                       MCMLE.maxit = 10))
-summary(model1) # AIC: 14 BIC: 73.5
-GOF <- gof(model1)
-plot(GOF)
-
-model2 <- ergm(SampledNetworks ~ edges + 
-                 b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) +
-                 b1factor('Program', levels = c("Doctorado", "Maestría")))
-summary(model2) # AIC: 16, BIC: 84.01
+summary(model2) # AIC: 14 BIC: 73.5
+#GOF <- gof(model1)
+#plot(GOF)
 
 model3 <- ergm(SampledNetworks ~ edges + 
-                 b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) + 
-                 b1factor('Program', levels = c("Doctorado", "Maestría")) +
-                 b1cov("Brochure.Length"))
+                 b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) +
+                 b1factor('Program', levels = c("Doctorado", "Maestría"))+
+                b1cov("Brochure.Length"))
 summary(model3) # AIC: 18, BIC: 94.51
+
+model4 <- ergm(SampledNetworks ~ edges + 
+                 b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) +
+                 b1factor('Program', levels = c("Doctorado", "Maestría"))+
+                 b1cov("Brochure.Length")+
+                 b1factor("OECD", levels = "TRUE"))
+summary(model4) # AIC: 20, BIC: 105
 
 model4 <- ergm(SampledNetworks ~ edges + 
                  b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) + 
