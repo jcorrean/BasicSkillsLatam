@@ -343,8 +343,7 @@ AIC: 4  BIC: 21  (Smaller is better. MC Std. Err. = 0)</code></pre>
 </section>
 <section id="model-2" class="level3" data-number="5.1.2">
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="model-2"><span class="header-section-number">5.1.2</span> <strong>Model 2</strong></h3>
-<p>posit that the top five most central basic skills suffices to account for the connectivity observed for our bipartite network in the region. When each of these skills are modeled as statistical terms, their estimates will be positive, greater than zero, and statistically significant.</p>
-<p>In this second model, we also include the effects for doctoral and master’s programs. Given the weak connectivity reported in the descriptive findings, we expect that the effects of graduate programs should be negative and statistically significant.</p>
+<p>Our second model is the next logical extension of our first model. In this second model we add the top five most central basic skills as endogenous network terms. We expect that these terms will be positive, greater than zero, and statistically significant. We also expect that the effect that each basic skill have on network ties will be greater than the effect of program brochures.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Call:
@@ -383,7 +382,7 @@ AIC: 16  BIC: 84.01  (Smaller is better. MC Std. Err. = 0)</code></pre>
 </section>
 <section id="model-3" class="level3" data-number="5.1.3">
 <h3 data-number="5.1.3" class="anchored" data-anchor-id="model-3"><span class="header-section-number">5.1.3</span> <strong>Model 3</strong>:</h3>
-<p>In this model, we want to test the effects of other confounding factors that might be hidden behind the length of the brochure that is used to promote the programs where these skills are explicitly mentioned. We claim that this covariable can hide confounding factors associated to the skills targeted by the programs because the information contained in them can describe other attributes of the program that have nothing to do with basic skills formation, like the possibility to getting a double degree or a professional certification. We expect that the statistical estimates for our five basic skills will remain positive, greater than zero, and statistically significant, while the statistical estimate for the brochure length will remain non-significant and close to zero.</p>
+<p>This third model extend the scope of previous two models. Now, the model considers the effects of exogenous covariables of master’s and doctoral programs, along with the exogenous factor of brochure length, and basic skills as endogenous factors of the bipartite network. We expect that the statistical estimates for our five basic skills will remain positive, greater than zero, and statistically significant, while the statistical estimate for the brochure length will remain non-significant and close to zero.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Call:
