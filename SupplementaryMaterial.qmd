@@ -31,11 +31,13 @@ suppressPackageStartupMessages(library(psych)) # for multivariate analysis
 
 # Motivation
 
-Empirical research in higher education seldom adheres to FAIR principles and open science standards. The absence of these principles (i.e., Findable, Accessible, Interoperable, and Reusable) represents a significant barrier that prevents researchers from making meaningful contributions. Given the massive adoption of the so-called Large Language Models such as ChatGPT or Microsoft Copilo by university students and professors, it is timely to revisit teaching and learning practices, and understand the importance of basic skills such as reading comprehension, writing, or critical thinking. Here, we provide a supplementary material that follows the FAIR principles to promote open science standards among educational researchers.
+Empirical research in higher education seldom adheres to FAIR principles and open science standards. The absence of these principles (i.e., Findable, Accessible, Interoperable, and Reusable) represents a significant barrier that prevents researchers from making meaningful contributions. Given the massive adoption of the so-called Large Language Models such as ChatGPT or Microsoft Copilot by university students and professors, it is timely to revisit teaching and learning practices, and understand the importance of basic skills such as reading comprehension, writing, or critical thinking. Here, we provide a supplementary material that follows the FAIR principles to promote open science standards among educational researchers.
 
 # The Data
 
-Our work presents a cross-national case study that estimates the importance of basic skills across 3,155 graduate programs offered by 481 universities at three educational levels or for three target audiences—specialization, master's, and doctoral programs—in nine Latin American countries.
+Our work presents a cross-national case study that estimates the importance of basic skills across 3,155 graduate programs offered by 481 universities at three educational levels or for three target audiences—specialization, master's, and doctoral programs—in nine Latin American countries. A visual representation of our workflow is depicted as follows.
+
+ ![Visual representation of our workflow](Workflow.png)
 
 The codes developed to preprocess the raw data are available in the following [GitHub repository](https://github.com/jcorrean/BasicSkillsLatam). Researchers interested in replicate or reproduce our analysis can find the RProject file `BasicSkillsLatam.RProj.`
 
@@ -202,21 +204,26 @@ To estimate the importance of these basic skills for the academic offering of gr
 
 ### **Model 1** 
 
-In this first model we examine the propensity of connections between programs and basic skills compared with the exogeneous covariable of brochure length. Based on our descriptive findings, we expect to find a negative and statistically significant effect for the term of network density. This is our baseline model that allows us to compare other effects in related ERGM models. In this first model, we also examine the effect of other hidden factors that might be confounded with the length of program brochures. Given the weak connectivity observed for the connection between program brochures and basic skills, we are inclined to think that the length of program brochures (captured by the number of sentences) might include other factors that are not explicitly related to basic skills but exert a positive and statistically significant effect on the observed network ties.
+In this first model we examine the propensity of connections between programs and basic skills compared with the exogeneous covariable of brochure length. Given the weak connectivity described in our results section, we expect to find a negative and statistically significant effect for the term of network density. Here, the negative sign indicates that the connection are systematic far below any random chance. This is our baseline model that allows us to compare other effects in related ERGM models. In this first model, we also examine the effect of other hidden factors that might be confounded with the length of program brochures. Given the weak connectivity observed for the connection between program brochures and basic skills, we are inclined to think that the length of program brochures (captured by the number of sentences) might include other factors that are not explicitly related to basic skills but exert a positive and statistically significant effect on the observed network ties.
 
 
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(network)
 RegionalNetworks <- readRDS("NetworkData/RegionalNetworks.RDS")
+library(ergm)
+library(ergm.multi)
+library(coda)
 SampledNetworks <- Networks(RegionalNetworks)
 
-
-model1 <- ergm(SampledNetworks ~ edges + 
-                 b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)))
+model1 <- ergm(SampledNetworks ~ edges + b1cov("Brochure.Length"), 
+               control = control.ergm(MCMC.samplesize = 100000, 
+                                      MCMC.burnin = 10000, 
+                                      MCMLE.maxit = 10))
 summary(model1)
 ```
 
-The results of our first model confirms our expectations regarding the significance of these basic skills for accounting for the network connectivity between programs and basic skills in the Latin American academic offering. In order to test the robustness of these basic skills, we introduce other factors in subsequent models.
+The results of our first model confirm our two expectations. The sign for the edges term was negative and significant, confirming that the connectivity between university programs and basic skills is far below any random chance.  We also confirm that brochure's length exerts a positive and statistically significant effect on network ties, confirming that other aspects not explicitly related to basic skills are associated to the connectivity of our biparte network.
 
 ### **Model 2** 
 

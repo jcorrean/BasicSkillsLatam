@@ -166,11 +166,17 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="motivation" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Motivation</h1>
-<p>Empirical research in higher education seldom adheres to FAIR principles and open science standards. The absence of these principles (i.e., Findable, Accessible, Interoperable, and Reusable) represents a significant barrier that prevents researchers from making meaningful contributions. Given the massive adoption of the so-called Large Language Models such as ChatGPT or Microsoft Copilo by university students and professors, it is timely to revisit teaching and learning practices, and understand the importance of basic skills such as reading comprehension, writing, or critical thinking. Here, we provide a supplementary material that follows the FAIR principles to promote open science standards among educational researchers.</p>
+<p>Empirical research in higher education seldom adheres to FAIR principles and open science standards. The absence of these principles (i.e., Findable, Accessible, Interoperable, and Reusable) represents a significant barrier that prevents researchers from making meaningful contributions. Given the massive adoption of the so-called Large Language Models such as ChatGPT or Microsoft Copilot by university students and professors, it is timely to revisit teaching and learning practices, and understand the importance of basic skills such as reading comprehension, writing, or critical thinking. Here, we provide a supplementary material that follows the FAIR principles to promote open science standards among educational researchers.</p>
 </section>
 <section id="the-data" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> The Data</h1>
-<p>Our work presents a cross-national case study that estimates the importance of basic skills across 3,155 graduate programs offered by 481 universities at three educational levels or for three target audiences—specialization, master’s, and doctoral programs—in nine Latin American countries.</p>
+<p>Our work presents a cross-national case study that estimates the importance of basic skills across 3,155 graduate programs offered by 481 universities at three educational levels or for three target audiences—specialization, master’s, and doctoral programs—in nine Latin American countries. A visual representation of our workflow is depicted as follows.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Workflow.png" class="img-fluid figure-img"></p>
+<figcaption>Visual representation of our workflow</figcaption>
+</figure>
+</div>
 <p>The codes developed to preprocess the raw data are available in the following <a href="https://github.com/jcorrean/BasicSkillsLatam">GitHub repository</a>. Researchers interested in replicate or reproduce our analysis can find the RProject file <code>BasicSkillsLatam.RProj.</code></p>
 <p>The supplementary material is documented as a Quarto document with the name <code>SupplementaryMaterial.qmd</code> and can be rendered in RStudio.</p>
 <section id="raw-data-and-pre-processing" class="level2" data-number="2.1">
@@ -313,37 +319,27 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="5.1" class="anchored" data-anchor-id="hypotheses-and-model-specifications"><span class="header-section-number">5.1</span> Hypotheses and Model Specifications</h2>
 <section id="model-1" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="model-1"><span class="header-section-number">5.1.1</span> <strong>Model 1</strong></h3>
-<p>In this first model we examine the propensity of connections between programs and basic skills compared with the exogeneous covariable of brochure length. Based on our descriptive findings, we expect to find a negative and statistically significant effect for the term of network density. This is our baseline model that allows us to compare other effects in related ERGM models. In this first model, we also examine the effect of other hidden factors that might be confounded with the length of program brochures. Given the weak connectivity observed for the connection between program brochures and basic skills, we are inclined to think that the length of program brochures (captured by the number of sentences) might include other factors that are not explicitly related to basic skills but exert a positive and statistically significant effect on the observed network ties.</p>
+<p>In this first model we examine the propensity of connections between programs and basic skills compared with the exogeneous covariable of brochure length. Given the weak connectivity described in our results section, we expect to find a negative and statistically significant effect for the term of network density. Here, the negative sign indicates that the connection are systematic far below any random chance. This is our baseline model that allows us to compare other effects in related ERGM models. In this first model, we also examine the effect of other hidden factors that might be confounded with the length of program brochures. Given the weak connectivity observed for the connection between program brochures and basic skills, we are inclined to think that the length of program brochures (captured by the number of sentences) might include other factors that are not explicitly related to basic skills but exert a positive and statistically significant effect on the observed network ties.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Call:
-ergm(formula = SampledNetworks ~ edges + b2factor("vertex.names", 
-    levels = c(8, 9, 2, 4, 1)))
+ergm(formula = SampledNetworks ~ edges + b1cov("Brochure.Length"), 
+    control = control.ergm(MCMC.samplesize = 1e+05, MCMC.burnin = 10000, 
+        MCMLE.maxit = 10))
 
 Maximum Likelihood Results:
 
-                                          Estimate Std. Error MCMC % z value
-edges                                   -3.350e+01  4.979e+05      0       0
-b2factor.vertex.names.science            1.609e+00  1.219e+06      0       0
-b2factor.vertex.names.speaking           1.609e+00  1.219e+06      0       0
-b2factor.vertex.names.active_listening   1.609e+00  1.219e+06      0       0
-b2factor.vertex.names.learning_strategy  1.609e+00  1.219e+06      0       0
-b2factor.vertex.names.active_learning    1.609e+00  1.219e+06      0       0
-                                        Pr(&gt;|z|)
-edges                                          1
-b2factor.vertex.names.science                  1
-b2factor.vertex.names.speaking                 1
-b2factor.vertex.names.active_listening         1
-b2factor.vertex.names.learning_strategy        1
-b2factor.vertex.names.active_learning          1
+                        Estimate Std. Error MCMC % z value Pr(&gt;|z|)
+edges                 -2.866e+01  5.326e+03      0  -0.005    0.996
+b1cov.Brochure.Length  3.029e-06  1.736e-01      0   0.000    1.000
 
      Null Deviance: 5.038e+04  on 36340  degrees of freedom
- Residual Deviance: 1.614e-11  on 36334  degrees of freedom
+ Residual Deviance: 2.615e-08  on 36338  degrees of freedom
  
-AIC: 12  BIC: 63  (Smaller is better. MC Std. Err. = 0)</code></pre>
+AIC: 4  BIC: 21  (Smaller is better. MC Std. Err. = 0)</code></pre>
 </div>
 </div>
-<p>The results of our first model confirms our expectations regarding the significance of these basic skills for accounting for the network connectivity between programs and basic skills in the Latin American academic offering. In order to test the robustness of these basic skills, we introduce other factors in subsequent models.</p>
+<p>The results of our first model confirm our two expectations. The sign for the edges term was negative and significant, confirming that the connectivity between university programs and basic skills is far below any random chance. We also confirm that brochure’s length exerts a positive and statistically significant effect on network ties, confirming that other aspects not explicitly related to basic skills are associated to the connectivity of our biparte network.</p>
 </section>
 <section id="model-2" class="level3" data-number="5.1.2">
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="model-2"><span class="header-section-number">5.1.2</span> <strong>Model 2</strong></h3>
