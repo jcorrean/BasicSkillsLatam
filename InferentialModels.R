@@ -14,7 +14,7 @@ model1 <- ergm(SampledNetworks ~ edges + b1cov("Brochure.Length"),
                control = control.ergm(MCMC.samplesize = 100000, 
                                       MCMC.burnin = 10000, 
                                       MCMLE.maxit = 10))
-summary(model1)
+summary(model1) #AIC: 14 BIC: 73.5
 
 model1 <- ergm(SampledNetworks ~ edges + 
                  b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) +
@@ -22,7 +22,7 @@ model1 <- ergm(SampledNetworks ~ edges +
                control = control.ergm(MCMC.samplesize = 100000,
                                       MCMC.burnin = 10000, 
                                       MCMLE.maxit = 10))
-summary(model1) # AIC: 12 BIC: 63
+summary(model1) # AIC: 14 BIC: 73.5
 GOF <- gof(model1)
 plot(GOF)
 
