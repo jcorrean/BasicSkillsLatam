@@ -202,7 +202,9 @@ To estimate the importance of these basic skills for the academic offering of gr
 
 ### **Model 1** 
 
-In this first model we posit that the top five most central basic skills suffices to account for the connectivity observed for our bipartite network in the region. When each of these skills are modeled as statistical terms, their estimates will be positive, greater than zero, and statistically significant. 
+In this first model we examine the propensity of connections between programs and basic skills compared with the exogeneous factor that considers the brochure length. Based on our descriptive findings, we expect to find a negative and statistically significant effect for the term of network density. This is our baseline model that allows us to compare other effects in other ERGM models. In this first model, we also examine the effect of other hidden factors that might be confounded with the length of program brochures. Given the weak connectivity observed for the connection between program brochures and basic skills, we are inclined to think that program brochures might exert a positive and statistically significant effect on the observed network ties.
+
+posit that the top five most central basic skills suffices to account for the connectivity observed for our bipartite network in the region. When each of these skills are modeled as statistical terms, their estimates will be positive, greater than zero, and statistically significant. 
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 RegionalNetworks <- readRDS("NetworkData/RegionalNetworks.RDS")
