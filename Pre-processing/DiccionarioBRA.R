@@ -76,6 +76,7 @@ MatrizBRAPHD <- as.matrix(BRA_PhD)
 ProgramsBRA
 Matriz <- as.matrix(ProgramsBRA)
 rowSums(Matriz)
+MATRIZ_BR <- Matriz
 
 library(network)
 Brazil <- as.network(Matriz, matrix.type = "adjacency", directed = FALSE, bipartite = TRUE)
