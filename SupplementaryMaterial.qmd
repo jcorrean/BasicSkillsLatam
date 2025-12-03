@@ -215,7 +215,7 @@ library(ergm)
 library(ergm.multi)
 library(coda)
 SampledNetworks <- Networks(RegionalNetworks)
-
+set.seed(2758)
 model1 <- ergm(SampledNetworks ~ edges + b1cov("Brochure.Length"), 
                control = control.ergm(MCMC.samplesize = 100000, 
                                       MCMC.burnin = 10000, 
@@ -229,9 +229,12 @@ The results of our first model confirm our two expectations. The sign for the ed
 Our second model is the next logical extension of our first model. In this second model we add the top five most central basic skills as endogenous network terms. We expect that these terms will be positive, greater than zero, and statistically significant. We also expect that the effect that each basic skill have on network ties will be greater than the effect of program brochures.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-model2 <- ergm(SampledNetworks ~ edges + 
-       b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) +
-       b1factor('Program', levels = c("Doctorado", "Maestría")))
+set.seed(9237)
+
+model2 <- ergm(SampledNetworks ~ edges +
+               b2factor("vertex.names", levels=c("science","speaking","active_listening","learning_strategy","active_learning")) +
+               b1factor("Program", levels=c("Doctorado","Maestría")))
+
 summary(model2)
 ```
 
@@ -242,6 +245,7 @@ The results from model 2 confirm our expectations, and most importantly, the ERG
 This third model extend the scope of previous two models. Now, the model considers the effects of exogenous covariables of master's and doctoral programs, along with the exogenous factor of brochure length, and basic skills as endogenous factors of the bipartite network. We expect that the statistical estimates for our five basic skills will remain positive, greater than zero, and statistically significant, while the statistical estimate for the brochure length will remain non-significant and close to zero. 
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
+set.seed(1927)
 model3 <- ergm(SampledNetworks ~ edges + 
                  b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) +
                  b1cov("Brochure.Length"))
@@ -255,6 +259,7 @@ The results from model 3 do not confirm our expectations. Brochure length proved
 Here we want to test wether the membershipt to OECD exert a significant effect on network ties. We expect that this factor is positive and statistically significant.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
+set.seed(6802)
 model4 <- ergm(SampledNetworks ~ edges + 
                  b2factor("vertex.names", levels = c(8, 9, 2, 4, 1)) +
                  b1factor('OECD', levels = "TRUE"))

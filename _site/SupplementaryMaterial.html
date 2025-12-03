@@ -348,7 +348,8 @@ AIC: 4  BIC: 21  (Smaller is better. MC Std. Err. = 0)</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Call:
 ergm(formula = SampledNetworks ~ edges + b2factor("vertex.names", 
-    levels = c(8, 9, 2, 4, 1)) + b1factor("Program", levels = c("Doctorado", 
+    levels = c("science", "speaking", "active_listening", "learning_strategy", 
+        "active_learning")) + b1factor("Program", levels = c("Doctorado", 
     "Maestría")))
 
 Maximum Likelihood Results:
