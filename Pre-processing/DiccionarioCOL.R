@@ -76,6 +76,7 @@ MatrizCOPHD <- as.matrix(COL_PhD)
 ProgramsCOL
 Matriz <- as.matrix(ProgramsCOL)
 rowSums(Matriz)
+MATRIZ_CO <- Matriz
 library(network)
 Colombia <- as.network(Matriz, matrix.type = "adjacency", directed = FALSE, bipartite = TRUE)
 Colombia1 <- as.network(MatrizCOSPEC, matrix.type = "adjacency", directed = FALSE, bipartite = TRUE)
