@@ -78,6 +78,7 @@ MatrizVEPHD <- as.matrix(VEN_PhD)
 ProgramsVEN
 Matriz <- as.matrix(ProgramsVEN)
 rowSums(Matriz)
+MATRIZ_VE <- Matriz
 library(network)
 Venezuela <- as.network(Matriz, matrix.type = "adjacency", directed = FALSE, bipartite = TRUE)
 Venezuela1 <- as.network(MatrizVESPEC, matrix.type = "adjacency", directed = FALSE, bipartite = TRUE)
