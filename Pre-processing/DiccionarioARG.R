@@ -76,7 +76,7 @@ MatrizARGMS <- as.matrix(ARG_MS)
 MatrizARGPHD <- as.matrix(ARG_PhD)
 ProgramsARG
 Matriz <- as.matrix(ProgramsARG)
-
+MATRIX_AR <- Matriz
 rowSums(Matriz)
 str(Matriz)
 
