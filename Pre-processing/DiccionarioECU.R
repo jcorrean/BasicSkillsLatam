@@ -77,6 +77,7 @@ MatrizECUPHD <- as.matrix(ECU_PhD)
 ProgramsECU
 Matriz <- as.matrix(ProgramsECU)
 rowSums(Matriz)
+MATRIZ_EC <- Matriz
 library(network)
 Ecuador <- as.network(Matriz, matrix.type = "adjacency", directed = FALSE, bipartite = TRUE)
 Ecuador1 <- as.network(MatrizECUSPEC, matrix.type = "adjacency", directed = FALSE, bipartite = TRUE)
