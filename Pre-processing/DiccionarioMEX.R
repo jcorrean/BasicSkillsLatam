@@ -76,6 +76,7 @@ MatrizMEXPHD <- as.matrix(MEX_PhD)
 ProgramsMEX
 Matriz <- as.matrix(ProgramsMEX)
 rowSums(Matriz)
+MATRIZ_MX <- Matriz
 library(network)
 Mexico <- as.network(Matriz, matrix.type = "adjacency", directed = FALSE, bipartite = TRUE)
 Mexico1 <- as.network(MatrizMEXSPEC, matrix.type = "adjacency", directed = FALSE, bipartite = TRUE)
