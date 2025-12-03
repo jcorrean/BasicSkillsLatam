@@ -76,6 +76,7 @@ MatrizURUPHD <- as.matrix(URU_PhD)
 ProgramsURU
 Matriz <- as.matrix(ProgramsURU)
 rowSums(Matriz)
+MATRIZ_UY <- Matriz
 library(network)
 Uruguay <- as.network(Matriz, matrix.type = "adjacency", directed = FALSE, bipartite = TRUE)
 Uruguay1 <- as.network(MatrizURUSPEC, matrix.type = "adjacency", directed = FALSE, bipartite = TRUE)
