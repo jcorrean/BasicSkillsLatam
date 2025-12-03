@@ -76,6 +76,7 @@ MatrizCHLPHD <- as.matrix(CHL_PhD)
 ProgramsCHL
 Matriz <- as.matrix(ProgramsCHL)
 rowSums(Matriz)
+MATRIX_CL <- Matriz
 
 library(network)
 Chile <- as.network(Matriz, matrix.type = "adjacency", directed = FALSE, bipartite = TRUE)
