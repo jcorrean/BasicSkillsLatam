@@ -76,6 +76,7 @@ MatrizCORIPHD <- as.matrix(CORI_PhD)
 ProgramsCORI
 Matriz <- as.matrix(ProgramsCORI)
 rowSums(Matriz)
+MATRIZ_CR <- Matriz
 library(network)
 CostaRica <- as.network(Matriz, matrix.type = "adjacency", directed = FALSE, bipartite = TRUE)
 CostaRica1 <- as.network(MatrizCORISPEC, matrix.type = "adjacency", directed = FALSE, bipartite = TRUE)
