@@ -1,4 +1,4 @@
-load("~/Documents/GitHub/SoftSkillsLatam/Matrices/MatrizARG.RData")
+load("~/Documents/GitHub/BasicSkillsLatam/Matrices/MatrizARG.RData")
 rm(list=setdiff(ls(), c("Matriz", "ARGTexts")))
 library(igraph)
 bnARG <- graph_from_biadjacency_matrix(Matriz, directed = FALSE, weighted = TRUE)

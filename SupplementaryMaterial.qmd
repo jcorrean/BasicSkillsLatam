@@ -37,7 +37,7 @@ Empirical research in higher education seldom adheres to FAIR principles and ope
 
 Our work presents a cross-national case study that estimates the importance of basic skills across 3,155 graduate programs offered by 481 universities at three educational levels or for three target audiences—specialization, master's, and doctoral programs—in nine Latin American countries. A visual representation of our workflow is depicted as follows.
 
- ![Visual representation of our workflow](Workflow.png)
+![Visual representation of our workflow](Workflow.png)
 
 The codes developed to preprocess the raw data are available in the following [GitHub repository](https://github.com/jcorrean/BasicSkillsLatam). Researchers interested in replicate or reproduce our analysis can find the RProject file `BasicSkillsLatam.RProj.`
 
@@ -161,9 +161,7 @@ ggplot(AllPrograms, aes(x=Level, y=Eigenvector, fill = Partition)) +
   scale_fill_manual(values = c("Skill" = "#09419e", "Program" = "red2"))
 ```
 
-
 The next figure shows the normalized centrality for basic skills across programs (specialization, master, and PhD) and country. Scientific reasoning (science) emerged as the top basic skill with the highest centrality, regardless of the local academic offerings available in each country. Alongside scientific reasoning (science), the following basic skills complete the top five competencies: speaking, active listening, learning strategy, and active learning. We use this skill set as the basis for our network-based inferential analyses in the next section.
-
 
 ```{r F2, fig.cap="Figure 2. Normalized centrality for basic skills across programs and contries.", echo=FALSE, fig.width=40, fig.height=18, warning=FALSE}
 
@@ -202,11 +200,9 @@ To estimate the importance of these basic skills for the academic offering of gr
 
 ## Hypotheses and Model Specifications
 
-### **Model 1** 
+### **Model 1**
 
 In this first model we examine the propensity of connections between programs and basic skills compared with the exogeneous covariable of brochure length. Given the weak connectivity described in our results section, we expect to find a negative and statistically significant effect for the term of network density. Here, the negative sign indicates that the connection are systematic far below any random chance. This is our baseline model that allows us to compare other effects in related ERGM models. In this first model, we also examine the effect of other hidden factors that might be confounded with the length of program brochures. Given the weak connectivity observed for the connection between program brochures and basic skills, we are inclined to think that the length of program brochures (captured by the number of sentences) might include other factors that are not explicitly related to basic skills but exert a positive and statistically significant effect on the observed network ties.
-
-
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 library(network)
@@ -223,9 +219,10 @@ model1 <- ergm(SampledNetworks ~ edges + b1cov("Brochure.Length"),
 summary(model1)
 ```
 
-The results of our first model confirm our two expectations. The sign for the edges term was negative and significant, confirming that the connectivity between university programs and basic skills is far below any random chance.  We also confirm that brochure's length exerts a positive and statistically significant effect on network ties, confirming that other aspects not explicitly related to basic skills are associated to the connectivity of our biparte network.
+The results of our first model confirm our two expectations. The sign for the edges term was negative and significant, confirming that the connectivity between university programs and basic skills is far below any random chance. We also confirm that brochure's length exerts a positive and statistically significant effect on network ties, confirming that other aspects not explicitly related to basic skills are associated to the connectivity of our biparte network.
 
-### **Model 2** 
+### **Model 2**
+
 Our second model is the next logical extension of our first model. In this second model we add the top five most central basic skills as endogenous network terms. We expect that these terms will be positive, greater than zero, and statistically significant. We also expect that the effect that each basic skill have on network ties will be greater than the effect of program brochures.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
@@ -238,11 +235,11 @@ model2 <- ergm(SampledNetworks ~ edges +
 summary(model2)
 ```
 
-The results from model 2 confirm our expectations, and most importantly, the ERGM estimates of basic skills remain intact compared to the estimates of model 1, suggesting that basic skills are robust enough without losing statistical power. 
+The results from model 2 confirm our expectations, and most importantly, the ERGM estimates of basic skills remain intact compared to the estimates of model 1, suggesting that basic skills are robust enough without losing statistical power.
 
-### **Model 3**: 
+### **Model 3**:
 
-This third model extend the scope of previous two models. Now, the model considers the effects of exogenous covariables of master's and doctoral programs, along with the exogenous factor of brochure length, and basic skills as endogenous factors of the bipartite network. We expect that the statistical estimates for our five basic skills will remain positive, greater than zero, and statistically significant, while the statistical estimate for the brochure length will remain non-significant and close to zero. 
+This third model extend the scope of previous two models. Now, the model considers the effects of exogenous covariables of master's and doctoral programs, along with the exogenous factor of brochure length, and basic skills as endogenous factors of the bipartite network. We expect that the statistical estimates for our five basic skills will remain positive, greater than zero, and statistically significant, while the statistical estimate for the brochure length will remain non-significant and close to zero.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 set.seed(1927)
@@ -254,7 +251,7 @@ summary(model3) # AIC: 36919
 
 The results from model 3 do not confirm our expectations. Brochure length proved to exert a positive
 
-### **Model 4**: 
+### **Model 4**:
 
 Here we want to test wether the membershipt to OECD exert a significant effect on network ties. We expect that this factor is positive and statistically significant.
 
