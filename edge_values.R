@@ -66,7 +66,7 @@ for(i in 1:nrow(edges_args)){
   pave[row_index, col_index] <- 1
 }
 network.bipartite(pave, Argentina)
-
+Argentina
 # Add edge weights to the network object
 for (i in 1:nrow(edges_args)) {
   source_vertex <- which(network::get.vertex.attribute(Argentina, "vertex.names") == edges_args$Source[i])
