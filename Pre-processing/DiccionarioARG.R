@@ -143,7 +143,6 @@ network::get.edge.attribute(Argentina, "Frecuencia")
 network::set.edge.value(Argentina, "Frecuencia", edges_args)
 Argentina
 network::list.edge.attributes(Argentina)
-network::set.verte
 summary(Argentina)
 
 igraph::is.bipartite(bnARG)
@@ -185,6 +184,7 @@ for (i in 1:nrow(MatrizARGSPEC)) {
     }
   }
 }
+edges_arg1$Program <- "Specialization"
 bnARG1 <- graph_from_data_frame(edges_arg1, directed = FALSE)
 bipartite_mapping(bnARG1)
 V(bnARG1)$type <- bipartite_mapping(bnARG1)$type
@@ -244,6 +244,7 @@ for (i in 1:nrow(MatrizARGMS)) {
     }
   }
 }
+edges_arg2$Program <- "Master"
 bnARG2 <- graph_from_data_frame(edges_arg2, directed = FALSE)
 bipartite_mapping(bnARG2)
 V(bnARG2)$type <- bipartite_mapping(bnARG2)$type
@@ -302,6 +303,7 @@ for (i in 1:nrow(MatrizARGPHD)) {
     }
   }
 }
+edges_arg3$Program <- "PhD"
 bnARG3 <- graph_from_data_frame(edges_arg3, directed = FALSE)
 bipartite_mapping(bnARG3)
 V(bnARG3)$type <- bipartite_mapping(bnARG3)$type
@@ -351,4 +353,7 @@ MatrizARGSPEC <- as.matrix(t(ARG_Spec))
 MatrizARGMS <- as.matrix(t(ARG_MS))
 MatrizARGPHD <- as.matrix(t(ARG_PhD))
 Argentina
+Network_AR <- do.call(rbind, list(edges_arg1,
+                                  edges_arg2,
+                                  edges_arg3))
 save.image("Results/Argentina.RData")

@@ -51,16 +51,21 @@ Sampled.Universities
 
 268/Sampled.Universities
 
-RegionNetwork <- do.call(rbind, list(edges_arg, 
-                                     edges_br, 
-                                     edges_chl, 
-                                     edges_col, 
-                                     edges_cr, 
-                                     edges_ecu, 
-                                     edges_mx, 
-                                     edges_uy, 
-                                     edges_ven))
+RegionNetwork <- do.call(rbind, list(MATRIX_AR,
+                                     MATRIZ_BR,
+                                     MATRIX_CL,
+                                     MATRIZ_CO,
+                                     MATRIZ_CR,
+                                     MATRIZ_EC,
+                                     MATRIZ_MX,
+                                     MATRIZ_UY,
+                                     MATRIZ_VE))
 rm(list=setdiff(ls(), c("RegionNetwork")))
+rownames(RegionNetwork)[1:514] <- paste0("AR", 1:514)
+rownames(RegionNetwork)[515:1436] <- paste0("BR", 515:1436)
+rownames(RegionNetwork)[1437:1644] <- paste0("CL", 1437:1644)
+rownames(RegionNetwork)[1645:1874] <- paste0("CO", 1645:1874)
+
 load("LatamNetwork.RData")
 
 library(igraph)

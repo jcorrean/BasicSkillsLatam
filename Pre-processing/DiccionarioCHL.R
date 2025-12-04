@@ -156,6 +156,7 @@ edges_chl1 <- data.frame(
   Target = EdgeListCHL1[, 2],
   Country = "Chile"
 )
+edges_chl1$Program <- "Specialization"
 bnCHL1 <- graph_from_data_frame(edges_chl1, directed = F)
 bipartite_mapping(bnCHL1)
 V(bnCHL1)$type <- bipartite_mapping(bnCHL1)$type
@@ -207,6 +208,7 @@ edges_chl2 <- data.frame(
   Target = EdgeListCHL2[, 2],
   Country = "Chile"
 )
+edges_chl2$Program <- "Master"
 bnCHL2 <- graph_from_data_frame(edges_chl2, directed = F)
 bipartite_mapping(bnCHL2)
 V(bnCHL2)$type <- bipartite_mapping(bnCHL2)$type
@@ -258,6 +260,7 @@ edges_chl3 <- data.frame(
   Target = EdgeListCHL3[, 2],
   Country = "Chile"
 )
+edges_chl3$Program <- "PhD"
 bnCHL3 <- graph_from_data_frame(edges_chl3, directed = F)
 bipartite_mapping(bnCHL3)
 V(bnCHL3)$type <- bipartite_mapping(bnCHL3)$type
@@ -300,5 +303,8 @@ set.network.attribute(Chile3, "Clustering", ClusteringCHL3)
 set.network.attribute(Chile3, "Country", "Chile")
 set.network.attribute(Chile3, "Level", "PhD")
 Chile3
+Network_CL <- do.call(rbind, list(edges_chl1,
+                                  edges_chl2,
+                                  edges_chl3))
 save.image("Results/Chile.RData")
 
