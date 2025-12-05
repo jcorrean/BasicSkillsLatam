@@ -62,9 +62,7 @@ LatamNodeProperties <- LatamNodeProperties %>%
   mutate(
     OECD = case_when(
       Country %in% c("Chile", "Colombia", "México", "Costa Rica") ~ TRUE,
-      Country %in% c("Argentina", "Brazil", "Ecuador", "Uruguay", "Venezuela") ~ FALSE,
-      TRUE ~ NA  # Asigna NA a todos los demás países
-    )
+      Country %in% c("Argentina", "Brazil", "Ecuador", "Uruguay", "Venezuela") ~ FALSE)
   )
 
 rownames(LatamNetwork)[1:514] <-paste0("AR", 1:514)
@@ -90,11 +88,12 @@ LatamNet
 Countries <- c(LatamNodeProperties$Country, rep(NA, 10))
 Programs <- c(LatamNodeProperties$Program, rep(NA, 10))
 Brochure.Length <- c(LatamNodeProperties$Sentences, rep(NA, 10))
+OECD <- c(LatamNodeProperties$OECD, rep(NA, 10))
+tail(OECD, 11)
 network::set.vertex.attribute(LatamNet, "Country", Countries)
 network::set.vertex.attribute(LatamNet, "Program", Programs)
 network::set.vertex.attribute(LatamNet, "Brochure.Length", Brochure.Length)
-network::set.vertex.attribute(LatamNet, "OECD", c(LatamNodeProperties$OECD, rep(NA, 10)))
-
+network::set.vertex.attribute(LatamNet, "OECD", OECD)
 
 tail(network::get.vertex.attribute(LatamNet, "Country"), 10)
 tail(network::get.vertex.attribute(LatamNet, "OECD"), 10)
