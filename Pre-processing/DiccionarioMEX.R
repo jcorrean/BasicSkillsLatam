@@ -75,6 +75,7 @@ MatrizMEXMS <- as.matrix(MEX_MS)
 MatrizMEXPHD <- as.matrix(MEX_PhD)
 ProgramsMEX
 Matriz <- as.matrix(ProgramsMEX)
+MATRIX_MX <- Matriz
 rowSums(Matriz)
 MATRIZ_MX <- Matriz
 library(network)
