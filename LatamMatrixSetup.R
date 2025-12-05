@@ -19,5 +19,22 @@ load("Results/Mexico.RData")
 load("Results/Uruguay.RData")
 load("Results/Venezuela.RData")
 
-rm(list=setdiff(ls(), c("MATRIX_AR", "ARGTexts")))
+rm(list=setdiff(ls(), c("MATRIX_AR", "ARGTexts",
+                        "MATRIZ_BR", "BRATexts",
+                        "MATRIX_CL", "CHLTexts",
+                        "MATRIZ_CO", "COLTexts",
+                        "MATRIZ_CR", "CORITexts",
+                        "MATRIZ_EC", "ECUTexts",
+                        "MATRIX_MX", "MEXTexts",
+                        "MATRIZ_UY", "URUTexts",
+                        "MATRIZ_VE", "VENTexts")))
 
+LatamNetwork <- do.call(rbind, list(MATRIX_AR,
+                                    MATRIZ_BR,
+                                    MATRIX_CL,
+                                    MATRIZ_CO,
+                                    MATRIZ_CR,
+                                    MATRIZ_EC,
+                                    MATRIX_MX,
+                                    MATRIZ_UY,
+                                    MATRIZ_VE))
