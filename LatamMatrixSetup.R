@@ -75,7 +75,7 @@ LatamNet <- network(LatamNetwork,
                      directed = FALSE,
                      bipartite = TRUE,
                      vertices = vertices)
-summary(LatamNet)
+LatamNet
 
 library(igraph)
 bnR <- graph_from_biadjacency_matrix(LatamNetwork, directed = F)
