@@ -77,23 +77,29 @@ LatamNet <- network(LatamNetwork,
                      vertices = vertices)
 LatamNet
 
-library(igraph)
-bnR <- graph_from_biadjacency_matrix(LatamNetwork, directed = F)
-bnR
-tail(bipartite_mapping(bnR), 10)
-V(bnR)$type <- bipartite_mapping(bnR)$type
-V(bnR)$shape <- ifelse(V(bnR)$type, "circle", "square")
-V(bnR)$color <- ifelse(V(bnR)$type, "green4", "red3")
-V(bnR)$label.cex <- ifelse(V(bnR)$type, 0.5, 1)
-V(bnR)$size <- sqrt(igraph::degree(bnR))
-E(bnR)$color <- "lightgrey"
-png(filename = "FR.png", width = 40, height = 18, units = "in", res = 300)
-set.seed(8970)
-plot(bnR, vertex.label = NA, layout = layout.bipartite, arrow.width = 0.1, arrow.size = 0.1)
-dev.off()
+Countries <- c(LatamNodeProperties$Country, rep(NA, 10))
+Programs <- c(LatamNodeProperties$Program, rep(NA, 10))
+Brochure.Length <- c(LatamNodeProperties$Sentences, rep(NA, 10))
+network::set.vertex.attribute(LatamNet, "Country", Countries)
+network::set.vertex.attribute(LatamNet, "Program", Programs)
+network::set.vertex.attribute(LatamNet, "Brochure.Length", Brochure.Length)
 
-ProgramsRegion <- data.frame(Degree.centrality = igraph::degree(bnR),
-                             Closeness.centrality = igraph::closeness(bnR),
-                             Betweennes.centrality = igraph::betweenness(bnR),
-                             Eigenvector.centrality = igraph::eigen_centrality(bnR)$vector)
-rownames(ProgramsRegion)
+tail(network::get.vertex.attribute(LatamNet, "Country"), 10)
+LatamNet
+
+
+#library(igraph)
+#bnR <- graph_from_biadjacency_matrix(LatamNetwork, directed = F)
+#bnR
+#tail(bipartite_mapping(bnR), 10)
+#V(bnR)$type <- bipartite_mapping(bnR)$type
+#V(bnR)$shape <- ifelse(V(bnR)$type, "circle", "square")
+#V(bnR)$color <- ifelse(V(bnR)$type, "green4", "red3")
+#V(bnR)$label.cex <- ifelse(V(bnR)$type, 0.5, 1)
+#V(bnR)$size <- sqrt(igraph::degree(bnR))
+#E(bnR)$color <- "lightgrey"
+#png(filename = "FR.png", width = 40, height = 18, units = "in", res = 300)
+#set.seed(8970)
+#plot(bnR, vertex.label = NA, layout = layout.bipartite, arrow.width = 0.1, arrow.size = 0.1)
+#dev.off()
+
