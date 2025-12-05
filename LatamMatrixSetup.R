@@ -57,6 +57,16 @@ LatamNodeProperties$Program[LatamNodeProperties$Program == "Maestría"] <- "Mast
 table(LatamNodeProperties$Program)
 table(LatamNodeProperties$Country)
 
+library(tidyverse)
+LatamNodeProperties <- LatamNodeProperties %>%
+  mutate(
+    OECD = case_when(
+      Country %in% c("Chile", "Colombia", "México", "Costa Rica") ~ TRUE,
+      Country %in% c("Argentina", "Brazil", "Ecuador", "Uruguay", "Venezuela") ~ FALSE,
+      TRUE ~ NA  # Asigna NA a todos los demás países
+    )
+  )
+
 rownames(LatamNetwork)[1:514] <-paste0("AR", 1:514)
 rownames(LatamNetwork)[515:1436] <-paste0("BR", 1:922)
 rownames(LatamNetwork)[1437:1644] <- paste0("CL", 1:208)
