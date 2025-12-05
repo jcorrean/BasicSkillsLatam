@@ -55,9 +55,31 @@ LatamNodeProperties$Program[LatamNodeProperties$Program == "Especialização"] <
 LatamNodeProperties$Program[LatamNodeProperties$Program == "Especialización"] <- "Specialization"
 LatamNodeProperties$Program[LatamNodeProperties$Program == "Maestría"] <- "Master"
 table(LatamNodeProperties$Program)
+table(LatamNodeProperties$Country)
+
+rownames(LatamNetwork)[1:514] <-paste0("AR", 1:514)
+rownames(LatamNetwork)[515:1436] <-paste0("BR", 1:922)
+rownames(LatamNetwork)[1437:1644] <- paste0("CL", 1:208)
+rownames(LatamNetwork)[1645:1874] <- paste0("CO", 1:230)
+rownames(LatamNetwork)[1875:1994] <- paste0("CR", 1:120)
+rownames(LatamNetwork)[1995:2725] <- paste0("EC", 1:731)
+rownames(LatamNetwork)[2726:3277] <- paste0("MX", 1:552)
+rownames(LatamNetwork)[3278:3424] <- paste0("UY", 1:147)
+rownames(LatamNetwork)[3425:3634] <- paste0("VE", 1:210)
+
+vertices <- c(rownames(LatamNetwork), colnames(LatamNetwork))
+
+library(network)
+LatamNet <- network(LatamNetwork,
+                     loops = FALSE,
+                     directed = FALSE,
+                     bipartite = TRUE,
+                     vertices = vertices)
+summary(LatamNet)
 
 library(igraph)
 bnR <- graph_from_biadjacency_matrix(LatamNetwork, directed = F)
+bnR
 tail(bipartite_mapping(bnR), 10)
 V(bnR)$type <- bipartite_mapping(bnR)$type
 V(bnR)$shape <- ifelse(V(bnR)$type, "circle", "square")
@@ -70,3 +92,8 @@ set.seed(8970)
 plot(bnR, vertex.label = NA, layout = layout.bipartite, arrow.width = 0.1, arrow.size = 0.1)
 dev.off()
 
+ProgramsRegion <- data.frame(Degree.centrality = igraph::degree(bnR),
+                             Closeness.centrality = igraph::closeness(bnR),
+                             Betweennes.centrality = igraph::betweenness(bnR),
+                             Eigenvector.centrality = igraph::eigen_centrality(bnR)$vector)
+rownames(ProgramsRegion)
