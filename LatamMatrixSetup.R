@@ -93,10 +93,16 @@ Brochure.Length <- c(LatamNodeProperties$Sentences, rep(NA, 10))
 network::set.vertex.attribute(LatamNet, "Country", Countries)
 network::set.vertex.attribute(LatamNet, "Program", Programs)
 network::set.vertex.attribute(LatamNet, "Brochure.Length", Brochure.Length)
+network::set.vertex.attribute(LatamNet, "OECD", c(LatamNodeProperties$OECD, rep(NA, 10)))
+
 
 tail(network::get.vertex.attribute(LatamNet, "Country"), 10)
+tail(network::get.vertex.attribute(LatamNet, "OECD"), 10)
 LatamNet
 
+network::get.vertex.attribute(LatamNet, "vertex.names")
+
+rm(list=setdiff(ls(), c("LatamNet")))
 
 #library(igraph)
 #bnR <- graph_from_biadjacency_matrix(LatamNetwork, directed = F)
