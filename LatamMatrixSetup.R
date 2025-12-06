@@ -61,8 +61,8 @@ library(tidyverse)
 LatamNodeProperties <- LatamNodeProperties %>%
   mutate(
     OECD = case_when(
-      Country %in% c("Chile", "Colombia", "México", "Costa Rica") ~ TRUE,
-      Country %in% c("Argentina", "Brazil", "Ecuador", "Uruguay", "Venezuela") ~ FALSE)
+      Country %in% c("Chile", "Colombia", "Mexico", "Costa Rica") ~ 1,
+      Country %in% c("Argentina", "Brazil", "Ecuador", "Uruguay", "Venezuela") ~ 0)
   )
 
 rownames(LatamNetwork)[1:514] <-paste0("AR", 1:514)
@@ -95,11 +95,11 @@ network::set.vertex.attribute(LatamNet, "Program", Programs)
 network::set.vertex.attribute(LatamNet, "Brochure.Length", Brochure.Length)
 network::set.vertex.attribute(LatamNet, "OECD", OECD)
 
-tail(network::get.vertex.attribute(LatamNet, "Country"), 10)
-tail(network::get.vertex.attribute(LatamNet, "OECD"), 10)
+tail(network::get.vertex.attribute(LatamNet, "Country"), 11)
+tail(network::get.vertex.attribute(LatamNet, "OECD"), 11)
 LatamNet
 
-network::get.vertex.attribute(LatamNet, "vertex.names")
+tail(network::get.vertex.attribute(LatamNet, "vertex.names"), 10)
 
 rm(list=setdiff(ls(), c("LatamNet")))
 
