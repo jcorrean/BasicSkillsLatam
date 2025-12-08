@@ -96,4 +96,6 @@ dev.off()
 
 igraph::degree(bnR)
 Centrality <- data.frame(degree = igraph::degree(bnR),
-                         betweenness = igraph::betweenness(bnR))
+                         betweenness = igraph::betweenness(bnR),
+                         closeness = igraph::closeness(bnR))
+
