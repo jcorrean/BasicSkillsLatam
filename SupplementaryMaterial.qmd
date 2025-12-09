@@ -176,7 +176,7 @@ ggplot(Skills, aes(x = Eigenvector, y = reorder(Node, Eigenvector), color = Leve
   geom_line(aes(group = Node), linewidth = 0.5, color = "gray50") +
   
   # 2. Add the dots (points) for the centrality value
-  geom_point(size = 4) +
+  geom_point(size = 10) +
   
   # Use the same manual colors for consistency
   scale_color_manual(
@@ -196,21 +196,21 @@ ggplot(Skills, aes(x = Eigenvector, y = reorder(Node, Eigenvector), color = Leve
   
   # Adjust the theme settings (these values are quite large; you may want to scale them down)
   theme(
-    axis.text.x = element_text(angle=0, hjust=0.5, size = 35), # Reduced text size for better fit
-    axis.text.y = element_text(size = 35), # Reduced text size for better fit
-    axis.title.x = element_text(size = 30, colour = "black"),
-    axis.title.y = element_text(size = 30, colour = "black"),
+    axis.text.x = element_text(angle=0, hjust=0.5, size = 40), # Reduced text size for better fit
+    axis.text.y = element_text(size = 45), # Reduced text size for better fit
+    axis.title.x = element_text(size = 45, colour = "black"),
+    axis.title.y = element_text(size = 45, colour = "black"),
     legend.text = element_text(size = 35),
     legend.title = element_text(size = 35),
-    legend.position = "bottom", # Moved legend to bottom for better space utilization
-    strip.text = element_text(face="bold", size=rel(1.5), colour = "black"), # Reduced facet text size
+    legend.position = "top", # Moved legend to bottom for better space utilization
+    strip.text = element_text(face="bold", size=rel(4.5), colour = "grey30"), # Reduced facet text size
     strip.background = element_rect(fill="grey", colour="grey"),
     panel.grid.major.y = element_line(linetype = "dotted", color = "gray80") # Adds dotted grid lines
   ) +
   
   # Set axis labels
   ylab("Basic Skills") +
-  xlab("Eigenvector Centrality") +
+  xlab("Normalized centrality degree") +
   labs(color="")
 ```
 

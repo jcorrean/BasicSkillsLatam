@@ -60,6 +60,57 @@ Skills <- AllPrograms %>% filter(., Partition == "Skill")
 Skills$Node <- gsub("^(ARG|BRA|CHL|COL|CR|ECU|MEX|URU|VEN)_", "", Skills$Node)
 
 
+
+Skills <- AllPrograms %>% filter(., Partition == "Skill")
+Skills$Node <- gsub("^(ARG|BRA|CHL|COL|CR|ECU|MEX|URU|VEN)_", "", Skills$Node)
+Skills$Level <- factor(Skills$Level, levels = c("Specialization", "Master", "PhD"))
+
+png(filename = "F2.png", width = 40, height = 18, units = "in", res = 300)
+ggplot(Skills, aes(x = Eigenvector, y = reorder(Node, Eigenvector), color = Level)) +
+  
+  # 1. Add lines to connect the 'Level' points for each 'Node' within a 'Country'
+  # Set the group aesthetic to ensure the lines connect points correctly.
+  geom_line(aes(group = Node), linewidth = 0.5, color = "gray50") +
+  
+  # 2. Add the dots (points) for the centrality value
+  geom_point(size = 10) +
+  
+  # Use the same manual colors for consistency
+  scale_color_manual(
+    "",
+    values = c("Specialization" = "royalblue4", "Master" = "lightsteelblue3", "PhD" = "lightskyblue2"),
+    breaks = c("Specialization", "Master", "PhD")
+  ) +
+  
+  # Retain the facet to separate plots by country
+  facet_wrap(. ~ Country) +
+  
+  # Change coordinates to have Node on the Y-axis and Eigenvector on the X-axis
+  coord_cartesian() +
+  
+  # Apply a clean theme (theme_linedraw is kept, but theme_minimal is often preferred for dot plots)
+  theme_linedraw() +
+  
+  # Adjust the theme settings (these values are quite large; you may want to scale them down)
+  theme(
+    axis.text.x = element_text(angle=0, hjust=0.5, size = 40), # Reduced text size for better fit
+    axis.text.y = element_text(size = 45), # Reduced text size for better fit
+    axis.title.x = element_text(size = 45, colour = "black"),
+    axis.title.y = element_text(size = 45, colour = "black"),
+    legend.text = element_text(size = 35),
+    legend.title = element_text(size = 35),
+    legend.position = "top", # Moved legend to bottom for better space utilization
+    strip.text = element_text(face="bold", size=rel(4.5), colour = "grey30"), # Reduced facet text size
+    strip.background = element_rect(fill="grey", colour="grey"),
+    panel.grid.major.y = element_line(linetype = "dotted", color = "gray80") # Adds dotted grid lines
+  ) +
+  
+  # Set axis labels
+  ylab("Basic Skills") +
+  xlab("Normalized centrality degree") +
+  labs(color="")
+dev.off()
+
 png(filename = "F3.png", width = 40, height = 18, units = "in", res = 300)
 ggplot(Skills, aes(Level, Node, fill= Eigenvector)) + 
   geom_tile() + 
