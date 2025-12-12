@@ -39,8 +39,8 @@ model4 <- ergm(LatamNet ~ edges +
                  b2factor("vertex.names", levels=c("science",
                                                    "speaking",
                                                    "reading_comprehension",
-                                                   "learning_strategy",
-                                                   "active_learning")) +
+                                                   "active_listening",
+                                                   "learning_strategy")) +
                  b1cov("Brochure.Length") +
                  b1factor("Program", levels=c("Master", "PhD"))+
                  b1cov("OECD"),
