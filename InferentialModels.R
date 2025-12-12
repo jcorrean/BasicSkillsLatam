@@ -14,8 +14,8 @@ model2 <- ergm(LatamNet ~ edges +
                  b2factor("vertex.names", levels=c("science",
                                                    "speaking", 
                                                    "reading_comprehension", 
-                                                   "learning_strategy", 
-                                                   "active_learning")) +
+                                                   "active_listening",
+                                                   "learning_strategy")) +
                  b1cov("Brochure.Length"),               
                control = control.ergm(MCMC.samplesize = 100000,
                                       MCMC.burnin = 10000, 
