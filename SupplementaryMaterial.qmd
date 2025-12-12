@@ -282,3 +282,5 @@ model4 <- ergm(LatamNet ~ edges +
                  b1cov("OECD"))
 summary(model4) # AIC: 36919
 ```
+
+The results of our model tests
