@@ -1,16 +1,16 @@
 ---
-title: "Basic Skills in Higher Education: A Cross-National Comparison Case Study"
-format: html   
+  title: "Basic Skills in Higher Education: A Cross-National Comparison Case Study"
+format: docx
 keywords: 
   - Basic Skills
-  - Academic Offering
-  - Latin American
-  - Bipartite Network Modeling
+- Academic Offering
+- Latin American
+- Bipartite Network Modeling
 abstract: |
   This supplementary material aims to expand the data and methodological documentation of the work: "*Basic Skills in Higher Education: A Cross-National Comparison Case Study.*" Emphasis is placed on how to use the associated [GitHub repository](https://github.com/jcorrean/SoftSkillsLatam) for R users with expertise in network data science.
 ---
-
-```{r, echo = FALSE, warning = FALSE}
+  
+  ```{r, echo = FALSE, warning = FALSE}
 # Packages
 suppressPackageStartupMessages(library(tidyverse)) # Data wrangling
 suppressPackageStartupMessages(library(ggplot2)) # Data visualization
@@ -279,8 +279,8 @@ model4 <- ergm(LatamNet ~ edges +
                  b2factor("vertex.names", levels=c("science",
                                                    "speaking",
                                                    "active_listening",
-                                                  "learning_strategy",
-                                                  "active_learning")) +
+                                                   "learning_strategy",
+                                                   "active_learning")) +
                  b1cov("Brochure.Length") +
                  b1factor("Program", levels=c("Master", "PhD"))+
                  b1cov("OECD"))

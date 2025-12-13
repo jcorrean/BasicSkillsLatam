@@ -1,0 +1,67 @@
+
+---
+title: "Basic Skills in Higher Education: A Cross-National Comparison Case Study"
+date: "2025-12-13"
+format:
+  docx:
+    toc: true
+    number-sections: true
+    reference-docx: template.docx   # optional for styling
+keywords:
+  - Basic Skills
+  - Higher Education
+authors:
+  - name: "María del Pilar García-Chitiva"
+    affiliations: [a]
+  - name: "Ricardo Monge-Rangel"
+    affiliations: [b]
+  - name: "Mónica Panes-Martínez"
+    affiliations: [b]
+  - name: "Henry Laverde-Rojas"
+    affiliations: [c]
+  - name: "Eugenia Csoban-Mirka"
+    affiliations: [d]
+  - name: "Guillermo Yáber-Oltra"
+    affiliations: [d]
+  - name: "Zuleima Santalla"
+    affiliations: [e]
+  - name: "Silvana Dakduk"
+    affiliations: [a]
+  - name: "Alvaro Rivera-Eraso"
+    affiliations: [g]
+  - name: "Juan Esteban Gómez"
+    affiliations: [g]
+  - name: "Campo Elías López-Rodríguez"
+    affiliations: [h]
+  - name: "Wilmer Garzón"
+    affiliations: [i]
+  - name: "Julian Tejada"
+    affiliations: [j]
+  - name: "Juan C. Correa"
+    affiliations: [k]
+affiliations:
+  - id: a
+    name: "EGADE Business School, Tecnológico de Monterrey, Monterrey, México"
+  - id: b
+    name: "Facultad de Ingeniería y Negocios, Universidad de Las Américas, Santiago, Chile"
+  - id: c
+    name: "Programa de Economía, Universidad Militar Nueva Granada, Bogotá, Colombia"
+  - id: d
+    name: "Escuela de Psicología, Universidad Católica Andrés Bello, Caracas, Venezuela"
+  - id: e
+    name: "Escuela de Psicología, Universidad Espíritu Santo, Guayaquil, Ecuador"
+  - id: g
+    name: "Faculty of Graduate Studies, Fundación Universitaria Konrad Lorenz, Bogotá, Colombia"
+  - id: h
+    name: "Corporación Universitaria Minuto de Dios, Bogotá, Colombia"
+  - id: i
+    name: "Escuela Colombiana de Ingeniería Julio Garavito, Bogotá, Colombia"
+  - id: j
+    name: "Universidade Federal de Sergipe, Sergipe, Brazil"
+  - id: k
+    name: "Research & Development Unit, Critical Centrality Institute, Monterrey, México"
+---
+
+# Introduction
+
+Basic skills such as reading comprehension, writing, speaking, and critical thinking are essential for both university students and faculty. With the widespread adoption of the so-called \`\`Large Language Models'' (LLMs), such as ChatGPT and Microsoft Copilot, there is growing consensus that these technologies have the potential to transform higher education and the way we teach and learn these and other skills [@Extance2023]. Although these technologies have only recently been introduced into classrooms, educational researchers have employed various methodological approaches to evaluate their effects on students' skills, such as creativity \citep{Fisher2025} and critical thinking \citep{Essien2024}. Here, we introduce a cross-national comparative case study that focuses on basic skills in higher education as an additional approach that enriches the methodological toolbox of empirical educational researchers. Our approach leverages principles of network science in education \citep{Cramer2018}. Network science has been employed to enhance the teaching of mathematics in both undergraduate \citep{Porter2018} and postgraduate courses \citep{Gera2018}. In curriculum development, network science has served to evaluate doctoral programs in the United States of America \citep{Panagakou2018} and to inspire similar efforts in Europe \citep{Kertesz2018}. It has also provided several insights into the complex interplay between job requirements and workers' skills \citep{alabdulkareem2018}. More recently, it served as the framework for a case study estimating the importance of professional skills in accredited graduate marketing programs across three continental regions \citep{Dakduk2025}.
