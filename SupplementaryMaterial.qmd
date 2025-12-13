@@ -1,6 +1,6 @@
 ---
 title: "Basic Skills in Higher Education: A Cross-National Comparison Case Study"
-format: docx
+format: html
 keywords: 
   - Basic Skills
   - Academic Offering
