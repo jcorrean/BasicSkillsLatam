@@ -1,6 +1,6 @@
 ---
 title: "Basic Skills in Higher Education: A Cross-National Comparison Case Study"
-format: html
+format: docx
 keywords: 
   - Basic Skills
   - Academic Offering
@@ -276,7 +276,11 @@ Here we want to test wether the membershipt to OECD exert a significant effect o
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 set.seed(6802)
 model4 <- ergm(LatamNet ~ edges + 
-                 b2factor("vertex.names", levels=c("science","speaking","active_listening","learning_strategy","active_learning")) +
+                 b2factor("vertex.names", levels=c("science",
+                                                   "speaking",
+                                                   "active_listening",
+                                                  "learning_strategy",
+                                                  "active_learning")) +
                  b1cov("Brochure.Length") +
                  b1factor("Program", levels=c("Master", "PhD"))+
                  b1cov("OECD"))
