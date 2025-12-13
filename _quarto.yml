@@ -1,31 +1,63 @@
+
+# _quarto.yml
+# -------------------------------------------------
+# Default profile: WEBSITE
+# -------------------------------------------------
 project:
   type: website
-
-title: A Cross-National Comparison Case Study on the Basic Skills Academic Offering
-subtitle: "***Supplementary Material***"
-author:
-  - name: Juan C. Correa
-    orcid: 0000-0002-0301-5641
-    corresponding: TRUE
-    affiliation: Critical Centrality Institute
-    url: 'https://scholar.google.com/citations?user=fb0nE80AAAAJ&hl=en'
-    email: j.correa.n@gmail.com
-date: "16 October 2025"
-lang: en
-bibliography: refs.bib
-number-sections: true
+  render:
+    - SupplementaryMaterial.qmd       # what gets built for the site
 
 website:
-  title: ""
-sidebar:
-  left:
-  - href: SupplementaryMaterial.qmd
-text: Home
+  title: ""                           # empty banner title
+  sidebar:
+    left:
+      - href: SupplementaryMaterial.qmd
+        text: Home
 
 format:
   html:
     theme: cosmo
-css: styles.css
+    css: styles.css
+  # Global options for the website profile
+  # (docx settings won't affect the website unless used there)
 toc: true
+number-sections: true
+lang: en
+bibliography: refs.bib
 
-editor: visual
+# Optional site-level author (used ONLY by the website unless a page overrides it)
+author:
+  - name: Juan C. Correa
+    orcid: 0000-0002-0301-5641
+    corresponding: true
+    affiliation: Critical Centrality Institute
+    url: "https://scholar.google.com/citations?user=fb0nE80AAAAJ&hl=en"
+    email: j.correa.n@gmail.com
+title: "A Cross-National Comparison Case Study on the Basic Skills Academic Offering"
+subtitle: "***Supplementary Material***"
+date: "16 October 2025"
+
+# -------------------------------------------------
+# MANUSCRIPT profile (switch with: -P manuscript)
+# -------------------------------------------------
+profiles:
+  manuscript:
+    project:
+      type: manuscript              # prevents website wiring from interfering
+      render:
+        - manuscript.qmd            # only render the paper in this profile
+    # Clear global fields so the document-level YAML wins
+    metadata:
+      title: null
+      subtitle: null
+      date: null
+      author: []                    # <— important: clears project authors
+    # Manuscript-specific global defaults (safe)
+    format:
+      docx:
+        toc: false
+        number-sections: true
+    number-sections: true
+    lang: en
+    bibliography: refs.bib

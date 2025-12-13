@@ -1,0 +1,25 @@
+---
+title: "Título de tu Documento"
+author:
+  - María del Pilar García-Chitiva\n EGADE Business School, Tecnológico de Monterrey, Monterrey, México
+  - Ricardo Monge-Rangel, Facultad de Ingeniería y Negocios, Universidad de Las Américas, Santiago, Chile
+  - Mónica Panes-Martínez, Facultad de Ingeniería y Negocios, Universidad de Las Américas, Santiago, Chile
+  - Henry Laverde-Rojas, Programa de Economía, Universidad Militar Nueva Granada, Bogotá, Colombia
+  - Eugenia Csoban-Mirka, Escuela de Psicología, Universidad Católica Andrés Bello, Caracas, Venezuela
+  - Guillermo Yáber-Oltra, Escuela de Psicología, Universidad Católica Andrés Bello, Caracas, Venezuela
+  - Zuleima Santalla, Escuela de Psicología, Universidad Espíritu Santo, Guayaquil, Ecuador
+  - Silvana Dakduk, EGADE Business School, Tecnológico de Monterrey, Monterrey, México
+  - Alvaro Rivera-Eraso, Faculty of Graduate Studies, Fundación Universitaria Konrad Lorenz, Bogotá, Colombia
+  - Juan Esteban Gómez, Faculty of Graduate Studies, Fundación Universitaria Konrad Lorenz, Bogotá, Colombia
+  - Campo Elías López-Rodríguez, Corporación Universitaria Minuto de Dios, Bogotá, Colombia
+  - Wilmer Garzón, Escuela Colombiana de Ingeniería Julio Garavito, Bogotá, Colombia
+  - Julian Tejada, Universidade Federal de Sergipe, Sergipe, Brazil
+  - Juan C. Correa, Research & Development Unit, Critical Centrality Institute, Monterrey, México
+output: word_document
+---
+
+# 1. Introducción
+
+Aquí comienza el contenido de tu documento, con el formato de Markdown estándar. Por ejemplo:
+
+Este es un párrafo de ejemplo. Las notas al pie de página con las afiliaciones aparecerán automáticamente en la parte inferior de la primera página del documento de Word.

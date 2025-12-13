@@ -1,0 +1,22 @@
+---
+title: "Basic Skills in Higher Education: A Cross-National Comparison
+Case Study"
+bibliography: refs.bib
+
+keywords: 
+  - Basic Skills
+  - Academic Offering
+  - Latin American
+  - Bipartite Network Modeling
+abstract: |
+  This case study compares the emphasis on ten basic skills as advertised in 3,155 university programs from 481 universities in nine Latin American countries. We model the emphasis on these basic skills as an undirected bipartite network where basic skills are regarded as means that facilitate learning and a rapid acquisition of knowledge. While descriptive analyses reveal that the academic offering is weakly connected to basic skills, inferential analyses based on exponential random graph estimates confirm that scientific reasoning is consistently the most central skill in Latin American graduate programs, while mathematics and writing are less important skills.
+output:  # <--- Reemplaza 'format: docx: default' por esta estructura
+  word_document:
+    output_dir: "/home/jcc/Documents/GitHub/BasicSkillsLatam/"
+---
+
+# Introduction
+
+Basic skills such as reading comprehension, writing, speaking, and critical thinking are essential for both university students and faculty. With the widespread adoption of the so-called "Large Language Models" (LLMs), such as ChatGPT and Microsoft Copilot, there is growing consensus that these technologies have the potential to transform higher education and the way we teach and learn these and other skills [@Extance2023]. Although these technologies have only recently been introduced into classrooms, educational researchers have employed various methodological approaches to evaluate their effects on students’ skills, such as creativity [@Fisher2025] and critical thinking [@Essien2024]. Here, we introduce a cross-national comparative case study that focuses on basic skills in higher education as an additional approach that enriches the methodological toolbox of empirical educational researchers. Our approach leverages principles of network science in education [@Cramer2018]. Network science has been employed to enhance the teaching of mathematics in both undergraduate [@Porter2018] and postgraduate courses [@Gera2018]. In curriculum development, network science has served to evaluate doctoral programs in the United States of America [@Panagakou2018] and to inspire similar efforts in Europe [@Kertesz2018]. It has also provided several insights into the complex interplay between job requirements and workers’ skills [@alabdulkareem2018]. More recently, it served as the framework for a case study estimating the importance of professional skills in accredited graduate marketing programs across three continental regions [@Dakduk2025]. Building upon network science, our cross-national comparative case study evaluates the relative importance of basic skills in Latin American universities. This case study is motivated by two goals: first, to provide university leaders with data-driven insights on how to conduct empirical analyses of current academic offerings; and second, to offer empirical researchers a statistical approach that enables the estimation of skills importance without relying on survey or self-report questionnaires. From this perspective, the present work integrates the framework of network science [@Sayama2018] with the logic of case study research methods [@Yin2009].
+
+**References**
