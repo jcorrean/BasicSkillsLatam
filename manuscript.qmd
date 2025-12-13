@@ -1,0 +1,9 @@
+---
+title: "Untitled"
+format: docx
+bibliography: refs.bib
+---
+
+# Introduction
+
+Basic skills such as reading comprehension, writing, speaking, and critical thinking are essential for both university students and faculty. With the widespread adoption of the so-called \`\`Large Language Models'' (LLMs), such as ChatGPT and Microsoft Copilot, there is growing consensus that these technologies have the potential to transform higher education and the way we teach and learn these and other skills [@Extance2023]. Although these technologies have only recently been introduced into classrooms, educational researchers have employed various methodological approaches to evaluate their effects on students' skills, such as creativity [@Fisher2025] and critical thinking [@Essien2024]. Here, we introduce a cross-national comparative case study that focuses on basic skills in higher education as an additional approach that enriches the methodological toolbox of empirical educational researchers. Our approach leverages principles of network science in education [@Cramer2018]. Network science has been employed to enhance the teaching of mathematics in both undergraduate [@Porter2018] and postgraduate courses [@Gera2018]. In curriculum development, network science has served to evaluate doctoral programs in the United States of America [@Panagakou2018] and to inspire similar efforts in Europe [@Kertesz2018]. It has also provided several insights into the complex interplay between job requirements and workers' skills [@alabdulkareem2018]. More recently, it served as the framework for a case study estimating the importance of professional skills in accredited graduate marketing programs across three continental regions [@Dakduk2025].
