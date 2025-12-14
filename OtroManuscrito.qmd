@@ -300,3 +300,35 @@ result %>%
 ```
 
 Figure 2 shows the differences in normalized centrality distributions between skills and programs partitions for each nation. The figure helps us to identify a strong correlation between the network density and the size of the academic offering (r = 0.88, p < 0.01). As expected, skills consistently exhibit higher centrality values than programs, suggesting they have a structural role in the regional academic landscape. This general trend shows exceptions in Costa Rica and Chile, where program diversity and smaller network size lead to a more balanced distribution between skills and program. As expected, skills instead of programs are the ones that predominantly drive the network architecture. The presence of a small set of popular skills (e.g., science, speaking) largely defines the observed structure, while a significant proportion of programs remain in peripheral or isolated positions.
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 40
+#| fig-height: 18
+#| dpi: 300
+#| fig-cap: "Figure 1. Normalized centrality degree across different educational levels and partitions, faceted by country."
+library(ggplot2)
+ggplot(AllPrograms, aes(x=Level, y=Eigenvector, fill = Partition)) +
+  geom_violin() +
+  scale_x_discrete(limits = c("Specialization", "Master", "PhD")) +
+  facet_wrap(~Country) +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        legend.title=element_text(size=50), 
+        legend.text=element_text(size=50),
+        axis.title.x = element_text(size = 30, colour = "black"),
+        axis.title.y = element_text(size = 30, colour = "black"),
+        axis.text.x = element_text(size = 30, colour = "black"),
+        axis.text.y = element_text(size = 30, colour = "black"),
+        strip.text = element_text(face="bold", size=rel(3.5), colour = "black"),
+        strip.background = element_rect(fill="grey", colour="grey",
+                                        size=30)) +
+  xlab("") + ylab("Normalized centrality degree") +
+  labs(fill="")+
+  scale_fill_manual(values = c("Skill" = "#09419e", "Program" = "red2"))
+```
+
+## Skills centrality
+
+The analysis of normalized degree centrality presented in Figure 3 shows that scientific reasoning (science) is the most popular basic skill regardless of program level or country. Along with scientific reasoning, oral communication (speaking), reading comprehension, active listening, and learning strategies rank among the top five most popular basic skills. Consequently, assessing performance of oneself, other individuals, or organizations to make improvements or take corrective action (i.e., monitoring), along with critical thinking, active learning, writing, and mathematical reasoning emerge as the least popular skills within the academic programs sampled from Latin American countries.
