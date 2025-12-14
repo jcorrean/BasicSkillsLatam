@@ -62,7 +62,8 @@ result
 library(psych)
 
 Skills <- AllPrograms %>% filter(., Partition == "Skill")
-
-
-pave <- describeBy(Skills$Degree, group = Country, mat = TRUE, digits = 2)
+pave <- describeBy(Skills$Degree, group = Skills$Country, mat = TRUE, digits = 2)
 pave
+Programs <- AllPrograms %>% filter(., Partition == "Program")
+pave2 <- describeBy(Programs$Degree, group = Programs$Country, mat = TRUE, digits = 2)
+pave2

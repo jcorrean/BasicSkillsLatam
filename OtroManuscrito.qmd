@@ -27,11 +27,11 @@ A central objective of higher education institutions is to provide instruction i
 
 @Gadar2018 proposed a bipartite network to analyze the educational-occupation match of 15,253 subjects who worked in 402 occupations and graduated from 398 education programs delivered by 52 institutions in Hungary. Their results showed that computer science, nursing, and engineering programs connected to occupations with a scarce source of workers. They also found five components or modules in their network, but the programs-occupation connectivity was stronger in three of these modules. The first module grouped teaching, humanity, and art programs (Germanistic studies), and half of their occupations did not require a higher education diploma, although a quarter of graduates from Germanistic studies worked in the manufacturing and IT sector due in part to their advanced knowledge of the German language. The second module showed connections between business, economics, finance, human resources, social work, nursing, and medical programs with health care, teaching, child care workers, medical technicians, and personal care jobs. The third module revealed the links between engineering, IT, physics, ecology, and earth sciences with production, manufacturing, information managers, life science, and engineering professionals.
 
-Leveraging bipartite network modeling, @Aufiero2024 characterized the occupational information network (O\*NET) through the lenses of the economic complexity framework [@Hidalgo2009]. This characterization relied on the following three steps. First, they built a job-skill progression network, where nodes represented jobs and a link between two jobs indicates statistically significant co-occurrence of skills required to carry out those two jobs. Second, they used the fitness and complexity algorithm to define a skill-based complexity measure of jobs that positively maps into wages and in the bottom–up and broad abstract/manual and routine/non-routine job characterisations, however providing a continuous and endogenous metric to assess the complexity of each set of occupational skills. Finally, elaborating upon the relatedness and corporate coherence metrics, they introduced a measure of each job’s skill coherence that negatively maps into wages. Among their findings, they noted two distinct communities. The first community revealed a notable concentration of technical skills mainly associated with industrial production processes, and the second community had a connection with more abstract skills including business, management, and art-related competencies. They noted that cross-functional skills were those related to business and management as they serve as a crucial link between these two communities. @Aufiero2024 reported that "Management and Top Executives," "Supervisors of Repair and Protective Service Occupations," "Architects" and "Life Scientists" proved to be among the top fitness jobs. In contrast, low-fitness jobs included "Food Preparation and Serving Related Workers," "Entertainment Attendants," "Financial Clerks," "Personal Appearance, and Administrative Support workers."
+Leveraging bipartite network modeling, @Aufiero2024 characterized the occupational information network (O*NET) through the lenses of the economic complexity framework [@Hidalgo2009]. This characterization relied on the following three steps. First, they built a job-skill progression network, where nodes represented jobs and a link between two jobs indicates statistically significant co-occurrence of skills required to carry out those two jobs. Second, they used the fitness and complexity algorithm to define a skill-based complexity measure of jobs that positively maps into wages and in the bottom–up and broad abstract/manual and routine/non-routine job characterisations, however providing a continuous and endogenous metric to assess the complexity of each set of occupational skills. Finally, elaborating upon the relatedness and corporate coherence metrics, they introduced a measure of each job’s skill coherence that negatively maps into wages. Among their findings, they noted two distinct communities. The first community revealed a notable concentration of technical skills mainly associated with industrial production processes, and the second community had a connection with more abstract skills including business, management, and art-related competencies. They noted that cross-functional skills were those related to business and management as they serve as a crucial link between these two communities. @Aufiero2024 reported that "Management and Top Executives," "Supervisors of Repair and Protective Service Occupations," "Architects" and "Life Scientists" proved to be among the top fitness jobs. In contrast, low-fitness jobs included "Food Preparation and Serving Related Workers," "Entertainment Attendants," "Financial Clerks," "Personal Appearance, and Administrative Support workers."
 
 Leveraging keywords-in-context functions to extract soft skills explicitly mentioned in commercial brochures of university programs, @Garciachitiva2024 proposed a bipartite network structure to estimate the centrality of 31 soft skills by sampling 230 university programs for three types of graduate studies (i.e., Specialization, Master, and Doctorate) with two quality accreditation standards offered by 49 higher education institutions in Colombia. Here, soft skills refer to abilities related to socio-emotional behavioral control in programs’ intended learning outcomes [@Scheerens2020]. From this perspective, @Garciachitiva2024 characterized the skills-programs connectivity as a non-directed bipartite network with binary entries. Among their results, they showed that skills’ centrality varied as a function of the graduate program without revealing statistically significant differences. In addition, while the most central skills tend to be those related to creativity, leadership, and analytical thinking, less central skills were those related to empathy, ethical thinking, and critical thinking. Based on these results, the authors claimed to what extent emphasizing the most visible skills might imply an imbalance in the opportunities to enhance other soft skills, such as ethical thinking in students interested in becoming entrepreneurs.
 
-More recently, @Javadian2024 developed the "Course-Skill Atlas" as a longitudinal dataset from over three million course syllabi taught at nearly three thousand higher education institutions in the United States of America. By employing a natural language processing framework called "Syllabus2O\*NET," they processed raw syllabus texts with sentence segmentation, sentence tagging, and sentence embedding to create a vector representation of the syllabi in the ability taxonomy provided by the U.S. Department of Labor’s O\*NET taxonomy. They estimated the semantic similarity between identified learning content and detailed work activities from the O\*NET taxonomy using SBERT, and generated skill vectors for each analyzed syllabus. The resulting skill profiles were aggregated by institution, year, and academic major. Among their findings, they reported a general trend of increasing alignment between skills taught in higher education and labor market demands over time. However, some specific fields, like computer science, showed stagnant syllabi diverging from rapidly evolving labor force requirements. In their analyses, they also identified distinctive skills for each field of study, revealing that similar academic fields cluster together based on shared workplace activities, forming groups such as STEM and humanities-based majors, without providing further evidence of non-technical skills or soft skills.
+More recently, @Javadian2024 developed the "Course-Skill Atlas" as a longitudinal dataset from over three million course syllabi taught at nearly three thousand higher education institutions in the United States of America. By employing a natural language processing framework called "Syllabus2O\*NET," they processed raw syllabus texts with sentence segmentation, sentence tagging, and sentence embedding to create a vector representation of the syllabi in the ability taxonomy provided by the U.S. Department of Labor’s O\*NET taxonomy. They estimated the semantic similarity between identified learning content and detailed work activities from the O*NET taxonomy using SBERT, and generated skill vectors for each analyzed syllabus. The resulting skill profiles were aggregated by institution, year, and academic major. Among their findings, they reported a general trend of increasing alignment between skills taught in higher education and labor market demands over time. However, some specific fields, like computer science, showed stagnant syllabi diverging from rapidly evolving labor force requirements. In their analyses, they also identified distinctive skills for each field of study, revealing that similar academic fields cluster together based on shared workplace activities, forming groups such as STEM and humanities-based majors, without providing further evidence of non-technical skills or soft skills.
 
 Finally, @Dakduk2025 presented a case study that employed bipartite network modeling to analyze the relationship between 28 professional skills associated with the role of marketing professionals and 258 graduate programs with quality accreditation standards conferred by the Association to Advance Collegiate Schools of Business (AACSB) and offered by 222 public and private universities across three continental regions (i.e., the Americas, the Europe-Africa- Middle East region, and the Asian region). By retrieving information from brochures of Master’s in Marketing offered by AACSB-accredited universities and the profile of marketing managers defined by the O\*NET database, they analyzed a sample representing 85.58% of the worldwide academic offering in Master’s in marketing, revealing that most of the global academic offerings for Master’s in Marketing programs is in the American continent (69.77%), followed by the Europe-Africa-Middle East region (19.29%) and the Asian region (10.93%). Among their findings, they reported that while descriptive analysis for skills suggests a qualitative lack of alignment between the job demands captured by O\*NET, inferential analyses based on exponential random graph model estimates showed that skill popularity and homophily coexist with a systematic yet weak alignment to job demands for marketing managers. In particular, they found that “management of personnel resources,” “judgment and decision making,” “coordination,” “active listening,” and “management of financial resources” emerged as the most popular skills offered by the programs.
 
@@ -201,3 +201,102 @@ RegionalNetworks %>%
   ) %>%
   kable()
 ```
+
+## Centrality comparison
+
+Beyond the sparsity observed in the links between skills and programs, we note important differences in the internal structure of the national subnetworks across countries. As shown in Table 2, the skills-programs ratio per nation varies considerably, ranging from 1.813 in Costa Rica to 4.863 in Brazil. Costa Rica has the smallest academic offering and the average centrality for skills in this country (0.454) was slightly higher than the average centrality for programs (0.250). In contrast, in nations like Ecuador, Brazil, and México, the skill-program ratio becomes higher.
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+load("Results/Argentina.RData")
+load("Results/Brazil.RData")
+load("Results/Chile.RData")
+load("Results/Colombia.RData")
+load("Results/CostaRica.RData")
+load("Results/Ecuador.RData")
+load("Results/Mexico.RData")
+load("Results/Uruguay.RData")
+load("Results/Venezuela.RData")
+
+rm(list=setdiff(ls(), c("ProgramsARG1", "ProgramsARG2", "ProgramsARG3",
+                        "ProgramsBRA1", "ProgramsBRA2", "ProgramsBRA3",
+                        "ProgramsCHL1", "ProgramsCHL2", "ProgramsCHL3",
+                        "ProgramsCOL1", "ProgramsCOL2", "ProgramsCOL3",
+                        "ProgramsCORI1", "ProgramsCORI2", "ProgramsCORI3",
+                        "ProgramsECU1", "ProgramsECU2", "ProgramsECU3",
+                        "ProgramsMEX1", "ProgramsMEX2", "ProgramsMEX3",
+                        "ProgramsURU1", "ProgramsURU2", "ProgramsURU3",
+                        "ProgramsVEN1", "ProgramsVEN2", "ProgramsVEN3")))
+
+AllPrograms <- do.call(rbind, list(ProgramsARG1,
+                                   ProgramsARG2,
+                                   ProgramsARG3,
+                                   ProgramsBRA1,
+                                   ProgramsBRA2,
+                                   ProgramsBRA3,
+                                   ProgramsCHL1,
+                                   ProgramsCHL2,
+                                   ProgramsCHL3,
+                                   ProgramsCOL1,
+                                   ProgramsCOL2,
+                                   ProgramsCOL3,
+                                   ProgramsCORI1,
+                                   ProgramsCORI2,
+                                   ProgramsCORI3,
+                                   ProgramsECU1,
+                                   ProgramsECU2,
+                                   ProgramsECU3,
+                                   ProgramsMEX1,
+                                   ProgramsMEX2,
+                                   ProgramsMEX3,
+                                   ProgramsURU1,
+                                   ProgramsURU2,
+                                   ProgramsURU3,
+                                   ProgramsVEN1,
+                                   ProgramsVEN2,
+                                   ProgramsVEN3))
+
+rm(list=setdiff(ls(), c("AllPrograms")))
+
+library(dplyr)
+result <- AllPrograms %>%
+  # Summarize data by both Partition (Skill/Program) and Country
+  group_by(Partition, Country) %>%
+  summarize(
+    N = length(Node),
+    Mean = mean(Eigenvector),
+    SD = sd(Eigenvector),
+    .groups = 'drop' 
+  ) %>%
+  # Pivot the data from long to wide format
+  pivot_wider(
+    names_from = Partition, 
+    values_from = c(Mean, SD, N)
+  ) %>%
+  # Calculate the Skill-Program Ratio and reorder/rename columns
+  mutate(
+    `Skill-Program Ratio` = Mean_Skill / Mean_Program
+  ) %>%
+  # Select and rename columns to match the image structure
+  select(
+    Country,
+    `Skills Mean` = Mean_Skill,
+    `Skills SD` = SD_Skill,
+    `Programs Mean` = Mean_Program,
+    `Programs SD` = SD_Program,
+    `Skill-Program Ratio`
+  ) %>%
+  # Round the numeric columns to two decimal places, matching the image
+  mutate(across(where(is.numeric), ~ round(., 3))) 
+
+# --- 2. kable Formatting ---
+library(knitr)
+result %>%
+  # Use the kable function to create the table structure
+  kable(
+    caption = "Table 2: Normalized centrality statistics by Country.",
+    align = c('l', 'c', 'c', 'c', 'c', 'c'), # Alignments for each column
+    format = "markdown" # Use 'html' or 'latex' for R Markdown/Quarto output
+  )
+```
+
+Figure 2 shows the differences in normalized centrality distributions between skills and programs partitions for each nation. The figure helps us to identify a strong correlation between the network density and the size of the academic offering (r = 0.88, p < 0.01). As expected, skills consistently exhibit higher centrality values than programs, suggesting they have a structural role in the regional academic landscape. This general trend shows exceptions in Costa Rica and Chile, where program diversity and smaller network size lead to a more balanced distribution between skills and program. As expected, skills instead of programs are the ones that predominantly drive the network architecture. The presence of a small set of popular skills (e.g., science, speaking) largely defines the observed structure, while a significant proportion of programs remain in peripheral or isolated positions.
