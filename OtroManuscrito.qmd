@@ -404,6 +404,28 @@ library(ergm)
 library(modelsummary)
 library(flextable)
 load("NetworkData/LatamNetwork.RData")
+
+# 1. Define the custom formatting function
+# This function applies standard rounding (fmt = 3) to most numbers,
+# but uses scientific notation (e.g., "1.494e-04") for very small numbers.
+custom_scientific_fmt <- function(x) {
+  # Apply standard rounding to 3 decimals first
+  x <- format(round(x, 3), nsmall = 3)
+  
+  # Identify numbers that are very small (close to zero but not zero)
+  # A tolerance of 0.0001 (1e-4) is a good threshold for switching to scientific notation
+  is_small <- abs(x) < 0.0001 & abs(x) > 0
+
+  # For the small numbers, use scientific notation (e.g., 1.494e-04)
+  x[is_small] <- format(x[is_small], scientific = TRUE, digits = 3)
+  
+  # Optional: Replace the 'e-' with the desired LaTeX/Quarto format
+  # However, for flextable/DOCX, the standard scientific notation is often best.
+  # Let's stick with R's default scientific format for maximum compatibility.
+
+  return(x)
+}
+
 set.seed(2758)
 model1 <- ergm(LatamNet ~ edges + b1cov("Brochure.Length"), 
                control = control.ergm(MCMC.samplesize = 100000, 
