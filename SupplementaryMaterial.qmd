@@ -238,7 +238,7 @@ model1 <- ergm(LatamNet ~ edges + b1cov("Brochure.Length"),
 summary(model1)
 ```
 
-The results of our first model confirm our two expectations. The sign for the edges term was negative and significant, confirming that the connectivity between university programs and basic skills is far below any random chance. We also confirm that brochure's length exerts a positive and statistically significant effect on network ties, confirming that other aspects not explicitly related to basic skills are associated to the connectivity of our biparte network.
+Results from Model 1 confirm our hypothesis of a negative and statistically significant effect for the network density term, indicating that observed connections between basic skills and programs occur much less frequently than would be expected by chance. Model 1 also demonstrates that brochure length acts as a significant confounding factor, positively associated with the inclusion of basic skills in program descriptions.
 
 ### **Model 2**
 
@@ -252,7 +252,7 @@ model2 <- ergm(LatamNet ~ edges +
 summary(model2)
 ```
 
-The results from model 2 confirm our expectations, and most importantly, the ERGM estimates of basic skills remain intact compared to the estimates of model 1, suggesting that basic skills are robust enough without losing statistical power.
+Model 2 supports our expectation regarding the role of popular skills in forming ties with program brochures. Scientific reasoning (science) emerged as the most prominent skill, with a positive and statistically significant coefficient, confirming that it is consistently targeted across national academic offerings and ranks above all other skills. Model 2 also confirms the hierarchical order of importance among the remaining skills, with speaking ranking second, followed by reading comprehension, active listening, and learning strategies.
 
 ### **Model 3**:
 
@@ -267,7 +267,7 @@ model3 <- ergm(LatamNet ~ edges +
 summary(model3) # AIC: 36919
 ```
 
-The results from model 3 do not confirm our expectations. Brochure length proved to exert a positive
+Model 3 corroborates these findings and indicates that master’s and doctoral programs play a significant role in forming ties with basic skills, with estimates exceeding those for brochure length but remaining below those for the most popular skills. As in the previous two models, the estimate for the density term remains negative, increasing slightly.
 
 ### **Model 4**:
 
@@ -287,4 +287,4 @@ model4 <- ergm(LatamNet ~ edges +
 summary(model4) # AIC: 36919
 ```
 
-The results of our model tests
+Finally, Model 4 corroborates our expectations regarding the role of OECD membership, with its statistical estimate slightly exceeding those for master’s and doctoral programs but remaining below the estimates for popular skills. Taken together, the results across all models reveal a consistent pattern linking basic skills with postgraduate programs. Scientific reasoning (science) stands out as the most targeted skill in the academic offerings of sampled countries, complemented by oral communication (speaking), reading comprehension, active listening, and learning strategies.
