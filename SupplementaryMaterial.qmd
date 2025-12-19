@@ -7,7 +7,7 @@ keywords:
   - Latin American
   - Bipartite Network Modeling
 abstract: |
-  This supplementary material aims to expand the data and methodological documentation of the work: "*Basic Skills in Higher Education: A Cross-National Comparison Case Study.*" Emphasis is placed on how to use the associated [GitHub repository](https://github.com/jcorrean/SoftSkillsLatam) for R users with expertise in network data science.
+  This supplementary material aims to expand the data and methodological documentation of the work: "*Basic Skills in Higher Education: A Cross-National Multiple Case Study.*" Emphasis is placed on how to use the associated [GitHub repository](https://github.com/jcorrean/SoftSkillsLatam) for R users with expertise in network data science.
 ---
 
 ```{r, echo = FALSE, warning = FALSE}
