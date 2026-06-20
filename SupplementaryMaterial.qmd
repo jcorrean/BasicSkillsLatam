@@ -1,5 +1,5 @@
 ---
-title: "Basic Skills in Higher Education: A Cross-National Comparison Case Study"
+title: "A Cross-National Network Analysis of Basic Skills in Latin American Higher Education"
 format: html   
 keywords: 
   - Basic Skills
