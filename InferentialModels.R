@@ -50,7 +50,7 @@ model4 <- ergm(LatamNet ~ edges +
 summary(model4) # AIC: 36919
 
 
-model5 <- ergm(LatamNet ~ 
+model5A <- ergm(LatamNet ~ 
                  edges +
                  b2factor("vertex.names",
                           levels = c("science","speaking",
@@ -58,7 +58,15 @@ model5 <- ergm(LatamNet ~
                                      "active_listening","learning_strategy")) +
                  b1cov("Brochure.Length") +
                  b1factor("Program", levels = c("Master","PhD")) +
-                 b1cov("OECD") +
-                 gwb2degree(decay = 0.5, fixed = TRUE) +
-                 gwb1degree(decay = 0.5, fixed = TRUE)
+                 b1cov("OECD")
 )
+summary(model5A)
+
+model5B <- ergm(LatamNet ~ 
+                 edges +
+                 b1cov("Brochure.Length") +
+                 b1factor("Program", levels = c("Master","PhD")) +
+                 b1cov("OECD") +
+                 gwb2degree(decay = 0.5, fixed = TRUE)
+)
+summary(model5B)
