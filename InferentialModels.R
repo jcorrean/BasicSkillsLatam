@@ -25,8 +25,8 @@ summary(model2)
 model3 <- ergm(LatamNet ~ edges + 
                  b2factor("vertex.names", levels=c("science",
                                                    "speaking",
-                                                   "reading_comprehension",
                                                    "active_listening",
+                                                   "reading_comprehension",
                                                    "learning_strategy")) +
                  b1cov("Brochure.Length") +
                  b1factor("Program", levels=c("Master", "PhD")),
@@ -70,3 +70,5 @@ model5_fixed <- ergm(LatamNet ~ edges +
                        gwb1degree(decay = 0.5, fixed = TRUE), # Aplicado al MODO 1 (Programas)
                      control = backend_control)
 summary(model5_fixed)
+
+save.image("~/Documents/GitHub/BasicSkillsLatam/Inferential_Results.RData")
