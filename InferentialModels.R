@@ -50,23 +50,23 @@ model4 <- ergm(LatamNet ~ edges +
 summary(model4) # AIC: 36919
 
 
-model5A <- ergm(LatamNet ~ 
-                 edges +
-                 b2factor("vertex.names",
-                          levels = c("science","speaking",
-                                     "reading_comprehension",
-                                     "active_listening","learning_strategy")) +
-                 b1cov("Brochure.Length") +
-                 b1factor("Program", levels = c("Master","PhD")) +
-                 b1cov("OECD")
+n_cores <- detectCores() - 1 
+backend_control <- control.ergm(
+  MCMC.samplesize = 50000, # Reducido de 100k a 50k: óptimo para convergencia sin quemar RAM
+  MCMC.burnin = 10000, 
+  MCMLE.maxit = 15,        # Un poco más de margen para ayudar a la convergencia
+  parallel = n_cores, 
+  parallel.type = "PSOCK"
 )
-summary(model5A)
 
-model5B <- ergm(LatamNet ~ 
-                 edges +
-                 b1cov("Brochure.Length") +
-                 b1factor("Program", levels = c("Master","PhD")) +
-                 b1cov("OECD") +
-                 gwb2degree(decay = 0.5, fixed = TRUE)
-)
-summary(model5B)
+model5_fixed <- ergm(LatamNet ~ edges + 
+                       b2factor("vertex.names", levels = c("science", "speaking", 
+                                                           "reading_comprehension", 
+                                                           "active_listening", 
+                                                           "learning_strategy")) +
+                       b1cov("Brochure.Length") +
+                       b1factor("Program", levels = c("Master", "PhD")) +
+                       b1cov("OECD") +
+                       gwb1degree(decay = 0.5, fixed = TRUE), # Aplicado al MODO 1 (Programas)
+                     control = backend_control)
+summary(model5_fixed)
