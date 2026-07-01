@@ -49,7 +49,7 @@ model4 <- ergm(LatamNet ~ edges +
                                       MCMLE.maxit = 10))
 summary(model4) # AIC: 36919
 
-
+library(parallel)
 n_cores <- detectCores() - 1 
 backend_control <- control.ergm(
   MCMC.samplesize = 50000, # Reducido de 100k a 50k: óptimo para convergencia sin quemar RAM
