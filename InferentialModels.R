@@ -38,6 +38,7 @@ model4 <- ergm(LatamNet ~ edges +
                                                    "active_listening",
                                                    "learning_strategy")),
                control = backend_control)
+mcmc.diagnostics(model4)
 summary(model4)
 
 model5 <- ergm(LatamNet ~ edges + 
@@ -50,6 +51,7 @@ model5 <- ergm(LatamNet ~ edges +
                                                    "learning_strategy")) +
                  b1factor("Program", levels=c("Master", "PhD")),
                control = backend_control)
+mcmc.diagnostics(model5)
 summary(model5)
 
 model6 <- ergm(LatamNet ~ edges + 
@@ -63,7 +65,17 @@ model6 <- ergm(LatamNet ~ edges +
                  b1factor("Program", levels=c("Master", "PhD")) +
                  b1cov("OECD"),
                control = backend_control)
+mcmc.diagnostics(model6)
 summary(model6)  
+
+
+pdf("Supplementary_MCMC_Diagnostics_Model6.pdf",
+    width = 10,
+    height = 8)
+
+mcmc.diagnostics(model6)
+
+dev.off()
 
 
 gof6 <- gof(
