@@ -64,6 +64,20 @@ model6 <- ergm(LatamNet ~ edges +
                  b1cov("OECD"),
                control = backend_control)
 summary(model6)  
+
+
+gof6 <- gof(
+  model6,
+  GOF = ~ degree +
+    distance +
+    espartners +
+    dspartners
+)
+
+print(gof6)
+
+plot(gof6)
+
   
 
 save.image("~/Documents/GitHub/BasicSkillsLatam/Inferential_Results.RData")
