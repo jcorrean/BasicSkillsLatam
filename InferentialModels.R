@@ -1,5 +1,6 @@
 library(network)
 load("NetworkData/LatamNetwork.RData")
+LatamNet
 library(ergm)
 library(coda)
 #SampledNetworks <- Networks(RegionalNetworks)
